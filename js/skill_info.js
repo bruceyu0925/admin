@@ -19,7 +19,7 @@ if( location.href.indexOf( '?' ) !== -1 ) {
         method: 'GET',
 
     }).then( ( res ) => {
-        return res.text()
+        return res.json()
 
     }).then( ( data ) => {
 
