@@ -1,0 +1,205 @@
+/* Form ---------------------------------------- */
+
+#Form{
+    flex-direction: column;
+}
+
+.form-input{
+    width: 200px;
+}
+
+#FormKind{
+    color: var(--light);
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+#FormReset{
+    color: var(--red);
+    background-color: transparent;
+    border-color: var(--red);
+}
+
+#FormReset:hover{
+    color: var(--light);
+    background-color: var(--red);
+}
+
+#FormSearch{
+    color: var(--light);
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+/* SearchTotal ---------------------------------------- */
+#SearchTotal{
+    font-size: 16px;
+    color: #777;
+    font-weight: bold;
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+/* BtnAdd ---------------------------------------- */
+#BtnAdd{
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: var(--blue);
+    background-color: var(--light);
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+}
+
+#BtnAdd > i {
+    margin-right: 4px;
+}
+
+#BtnAdd:hover{
+    color: var(--light);
+    background-color: var(--blue);
+}
+
+/* Table ----------------------------------------  */
+
+#TableBox{
+    width: 100%;
+    overflow-y: auto;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 0 16px;
+}
+
+tbody {
+    width: 100%;
+
+}
+tr{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+td{
+    max-width: 0px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+thead > tr > td{
+    padding: 12px 8px;
+    font-weight: bold;
+    color: var(--blue);
+    background-color: var(--light);
+}
+
+tbody > tr > td{
+    padding: 32px 8px;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+td:first-child{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+td:last-child{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.td-sort-btn{
+    background-color: transparent;
+}
+
+.td-sort-btn > i {
+    display: none;
+    font-size: 18px;
+    color: #777;
+}
+
+.td-sort-btn.--click > i{
+    color: var(--blue);
+}
+
+.td-sort-btn.--max > i:last-child {
+    display: block;
+}
+
+.td-sort-btn.--min > i:first-child {
+    display: block;
+}
+
+.list-btn{
+    border-radius: 4px;
+    padding: 4px 16px;
+}
+
+.list-btn-watch{
+    color: var(--light);
+    background-color: var(--green);
+}
+
+/* Page ---------------------------------------- */
+
+#Page{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#PageList{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-btn,
+.page-dot{
+    height: 32px;
+    width: 32px;
+    color: var(--blue);
+}
+
+.page-btn{
+    border: 1px solid var(--blue);
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.page-btn[disabled]{
+    opacity: .4;
+}
+
+.page-li,
+.page-dot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#PageNext,
+.page-li,
+.page-dot{
+    margin-left: 8px;
+}
+
+.page-btn:not([disabled]):hover,
+.page-li.--click{
+    background-color: var(--blue);
+    color: var(--light);
+}

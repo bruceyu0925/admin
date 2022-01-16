@@ -1,0 +1,40 @@
+td:nth-child(1){
+    width: 10%;
+    min-width: 75px;
+}
+td:nth-child(2){
+    width: 15%;
+    min-width: 150px;
+}
+td:nth-child(3){
+    width: 20%;
+    min-width: 150px;
+}
+td:nth-child(4){
+    width: 15%;
+    min-width: 150px;
+}
+td:nth-child(5){
+    width: 10%;
+    min-width: 100px;
+}
+td:nth-child(6){
+    width: 10%;
+    min-width: 175px;
+}
+td:nth-child(7){
+    width: 10%;
+    min-width: 175px;
+}
+td:nth-child(8){
+    width: 10%;
+    min-width: 100px;
+}
+
+td {
+    text-align: center;
+}
+
+tbody > tr > td:nth-child( 3 ){
+    text-align: left;
+}

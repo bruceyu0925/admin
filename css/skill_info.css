@@ -1,0 +1,60 @@
+
+#Form{
+    flex-direction: column;
+}
+
+.form-row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-col{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.form-input{
+    width: 400px;
+}
+
+#FormDesc{
+    resize: none;
+    height: 160px;
+    outline: none;
+    padding: 12px;
+}
+
+#FormDelete{
+    color: var(--red);
+    background-color: transparent;
+    border-color: var(--red);
+}
+
+#FormDelete:hover{
+    color: var(--light);
+    background-color: var(--red);
+}
+
+#FormCancel{
+    color: var(--blue);
+    background-color: transparent;
+    border-color: var(--blue);
+}
+
+#FormCancel:hover{
+    color: var(--light);
+    background-color: var(--blue);
+}
+
+#FormApply{
+    color: var(--light);
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
