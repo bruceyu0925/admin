@@ -1,5 +1,5 @@
 // const
-const FormLink = ( id ) => { return `/skill_info.html?id=${ id }` };
+const FormLink = ( id ) => { return `/backstage/skill_info.html?id=${ id }` };
 
 const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormBuildLast   = getId( 'FormBuildLast' ),

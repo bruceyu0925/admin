@@ -45,7 +45,7 @@ if( location.href.indexOf( '?' ) !== -1 ) {
                 </div>`
             )
             getId( 'FormDelete' ).onclick = () => {
-                window.location.href = '/skill_list.html';
+                window.location.href = '/backstage/skill_list.html';
             }
 
             Loading( false );
@@ -61,7 +61,7 @@ FormScore.onkeyup = function() {
 
 // event 取消設定
 FormCancel.onclick = () => {
-    window.location.href = '/skill_list.html';
+    window.location.href = '/backstage/skill_list.html';
 }
 
 // event 若有修改，離開頁面前詢問
@@ -79,5 +79,5 @@ queAll( 'input' ).forEach( el => {
 
 // event 確認設定
 FormApply.onclick = () => {
-    window.location.href = '/skill_list.html';
+    window.location.href = '/backstage/skill_list.html';
 }
