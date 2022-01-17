@@ -10,20 +10,23 @@ const FormId         = getId( 'FormId' ),
       FormCancel     = getId( 'FormCancel' ),
       FormApply      = getId( 'FormApply' );
 
-// carry out 解析網址參數
+// carry out 解析網址參數、fetch
 if( location.href.indexOf( '?' ) !== -1 ) {
+
+    var k = location.href.split( '?' )[ 1 ],
+        i = Number( k.replace( 'id=' , '' ) );
 
     Loading( true );
 
     fetch( GAS( 'AKfycbxlvF-Cw1I2YXHe6_9w3RPcbA57tne9GPGgUOIAOkoHjbMB4TGGEm8On_-p3C-WNaud' ) , {
-        method: 'GET',
+        method: 'POST',
+        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+        body: JSON.stringify({ 'id' : i })
 
     }).then( ( res ) => {
         return res.json()
 
     }).then( ( data ) => {
-
-        console.log(data)
 
         var d = data[ 0 ];
 
