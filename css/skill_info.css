@@ -53,7 +53,8 @@
     background-color: var(--blue);
 }
 
-#FormApply{
+#FormApply,
+#FormBuild{
     color: var(--light);
     background-color: var(--blue);
     border-color: var(--blue);
