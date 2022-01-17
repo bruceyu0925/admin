@@ -68,7 +68,7 @@ FormCancel.onclick = () => {
 }
 
 // event 若有修改，離開頁面前詢問
-queAll( 'input' ).forEach( el => {
+queAll( '.form-input' ).forEach( el => {
 
     el.onchange = () => {
 
