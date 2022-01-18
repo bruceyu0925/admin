@@ -15,17 +15,6 @@ const GoBack = () => {
     window.location.href = '/backstage/skill_list.html'
 };
 
-// func 輸出資料
-const FormHtml = () => {
-
-    FormTitle     .value = List_Array.Title;
-    FormDesc      .value = List_Array.Desc;
-    FormScore     .value = List_Array.Score;
-    FormId        .value = List_Array.Id;
-    FormDateBuild .value = DateTran( List_Array.DateBuild );
-    FormDateUpdate.value = DateTran( List_Array.DateUpdate );
-}
-
 // func Reqest資料
 const ReqJson = ( type ) => {
 
@@ -59,9 +48,9 @@ FormScore.onkeyup = function() {
     if( v > 100 ) {
         v = 100
 
-    } else if( v < 0 ){
+    } else if ( v < 0 ) {
         v = 0
-    }
+    };
     this.value = Math.round( v );
 }
 
@@ -111,7 +100,13 @@ const GetKind = () => {
             });
 
             if( location.href.includes( '?' ) ) {
-                FormHtml();
+
+                FormTitle     .value = List_Array.Title;
+                FormDesc      .value = List_Array.Desc;
+                FormScore     .value = List_Array.Score;
+                FormId        .value = List_Array.Id;
+                FormDateBuild .value = DateTran( List_Array.DateBuild );
+                FormDateUpdate.value = DateTran( List_Array.DateUpdate );
             };
 
             Loading( false );
