@@ -66,8 +66,7 @@ if( location.href.includes( '?' ) ) {
             </button>
         </div>`
     )
-
-    Loading( false );
+    GetKind();
 };
 
 // func 刪除

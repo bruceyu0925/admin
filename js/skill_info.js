@@ -18,30 +18,18 @@ const GoBack = () => {
 // func 輸出資料
 const FormHtml = () => {
 
-    // 設定文字框值
     FormTitle     .value = List_Array.Title;
     FormDesc      .value = List_Array.Desc;
     FormScore     .value = List_Array.Score;
     FormId        .value = List_Array.Id;
     FormDateBuild .value = DateTran( List_Array.DateBuild );
     FormDateUpdate.value = DateTran( List_Array.DateUpdate );
-
-    // 設定核取方塊值
-    var c = List_Array.Kind.toString();
-
-    Kind_Array.forEach( el => {
-
-        if( c.match( el.Id ) ) {
-
-            getId( 'FormKind' + el.Id ).setAttribute( 'checked' , true );
-        }
-    });
 }
 
 // func Reqest資料
 const ReqJson = ( type ) => {
 
-    // 取得核取值
+    // 取得核取方塊值
     var k = [];
 
     queAll( '.form-checkbox' ).forEach( el => {
@@ -92,28 +80,40 @@ const GetKind = () => {
 
         setTimeout( () => {
 
-            // 核取方塊 dom
             Kind_Array.forEach( el => {
 
                 var v = el.Id,
-                    t = el.Kind;
+                    t = el.Kind,
+                    j;
 
+                // 核取方塊 已核取
+                if( location.href.includes( '?' ) ) {
+
+                    var c = List_Array.Kind.toString();
+
+                    if( c.match( v ) ) j = ' checked';
+                };
+
+                // 核取方塊 dom
                 FormKind.insertAdjacentHTML( 'beforeend' ,
                     `<label class="form-kind-li">
-                        <input type="checkbox" class="form-checkbox" id="FormKind${ v }" name="FormKind" value="${ v }">
+                        <input type="checkbox" class="form-checkbox" name="FormKind" value="${ v }"${ j }>
                         <span>${ t }</span>
                     </label>`
-                )
-            })
+                );
+            });
 
             // 核取方塊 event
             queAll( '.form-checkbox' ).forEach( el => {
                 el.onclick = () => {
                     el.toggleAttribute( 'checked' )
                 }
-            })
+            });
 
-            FormHtml();
+            if( location.href.includes( '?' ) ) {
+                FormHtml();
+            };
+
             Loading( false );
 
         } , 500 );
