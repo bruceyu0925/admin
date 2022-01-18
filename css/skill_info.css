@@ -1,0 +1,15 @@
+.form-kind-li{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 8px;
+    color: var(--iron);
+}
+
+input[type="checkbox"]{
+    accent-color: var(--iron);
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+}

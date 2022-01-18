@@ -201,6 +201,10 @@ input[disabled]{
     justify-content: center;
 }
 
+.form-btn > i{
+    margin-right: 4px;
+}
+
 /* Aside ----------------------------------------  */
 
 #Aside{
@@ -264,8 +268,8 @@ input[disabled]{
 #Load > .load-img {
     width: 40px;
     height: 40px;
-    animation: rotate 600ms linear 0s forwards infinite;
-    -webkit-animation: rotate 600ms linear 0s forwards infinite;
+    animation: rotate 450ms linear 0s forwards infinite;
+    -webkit-animation: rotate 450ms linear 0s forwards infinite;
     animation-play-state: paused;
 }
 

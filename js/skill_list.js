@@ -8,6 +8,9 @@ const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormText        = getId( 'FormText' ),
       BtnAdd          = getId( 'BtnAdd' );
 
+var Kind_Array = [],
+    Kind_Total;
+
 // func 篩選資料
 const ListFilter = () => {
 
@@ -66,18 +69,31 @@ const ListHtml = () => {
 
     while( i < l ) {
 
+        // 轉換資料
         var a = Search_Array[ i ],
             id         = a[ 'Id' ],
             title      = a[ 'Title' ],
             desc       = a[ 'Desc' ],
-            kind       = a[ 'Kind' ],
+            kind       = a[ 'Kind' ].toString(),
             score      = a[ 'Score' ],
             datebuild  = DateTran( a[ 'DateBuild' ] ),
             dateupdate = DateTran( a[ 'DateUpdate' ] ),
             link       = FormLink( id );
 
+        // 轉換類別ID
+        for( let i = 0 ; i < Kind_Total ; i++ ) {
+
+            kind = kind.replace( ( Kind_Array[ i ][ 'Id' ] ) , Kind_Array[ i ][ 'Kind' ] )
+        };
+
+        // 輸出DOM
         Tbody.insertAdjacentHTML( 'beforeend' , 
             `<tr>
+                <td class="__center">
+                    <a class="list-btn list-btn-watch" href="${ link }">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
                 <td class="__center">
                     ${ id }
                 </td>
@@ -99,14 +115,28 @@ const ListHtml = () => {
                 <td class="__center">
                     ${ dateupdate }
                 </td>
-                <td class="__center">
-                    <a class="list-btn list-btn-watch" href="${ link }">編輯</a>
-                </td>
             </tr>`
         )
         i++
     }
     PageJudge();
+};
+
+// fetch GET kind
+const GetKind = () => {
+
+    fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
+        method: 'GET'
+        
+    }).then( res => {
+        return res.json()
+
+    }).then( data => {
+        Kind_Array = data;
+        Kind_Total = data.length;
+
+        FormSearch.click();
+    });
 };
 
 // fetch GET data
@@ -120,5 +150,5 @@ fetch( GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgq
     Data_Array = data;
     Data_Total = data.length;
 
-    FormSearch.click();
+    GetKind();
 });

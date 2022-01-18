@@ -140,7 +140,6 @@ FormSearch.onclick = () => {
             
             return a[ v ] > b[ v ] ? 1 : -1
         }
-
     });
 
     // 處理參數
@@ -156,11 +155,12 @@ FormSearch.onclick = () => {
 
         SearchTotal.innerHTML = '共 ' + Search_Total + ' 筆資料';
 
-    } , 500 )
+    } , 300 )
 };
 
 // event 重設搜尋
 FormReset.onclick = () => {
+
     queAll( '.form-input' ).forEach( el => el.value = '' );
     FormSearch.click();
 };
@@ -170,8 +170,11 @@ TheadSort.forEach( el => {
 
     el.onclick = () => {
 
-        el.classList.toggle( '--max' );
-        el.classList.toggle( '--min' );
+        if( el.classList.contains( '--click' ) ) {
+
+            el.classList.toggle( '--max' );
+            el.classList.toggle( '--min' );
+        }
 
         queOne( '.td-sort-btn.--click' ).classList.remove( '--click' );
         el.classList.add( '--click' );
@@ -181,15 +184,7 @@ TheadSort.forEach( el => {
 });
 
 // event 上一頁
-PagePrev.onclick = () => {
-    Page_Num--;
-    PageHtml();
-    ListHtml();
-};
+PagePrev.onclick = () => PageClick( Page_Num - 1 );
 
 // event 下一頁
-PageNext.onclick = () => {
-    Page_Num++;
-    PageHtml();
-    ListHtml();
-};
+PageNext.onclick = () => PageClick( Page_Num + 1 );

@@ -142,13 +142,8 @@ td:last-child{
 }
 
 .list-btn{
-    border-radius: 4px;
-    padding: 4px 16px;
-}
-
-.list-btn-watch{
-    color: var(--light);
-    background-color: var(--green);
+    font-size: 18px;
+    color: var(--blue);
 }
 
 /* Page ---------------------------------------- */

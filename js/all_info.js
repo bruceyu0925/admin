@@ -1,9 +1,10 @@
 // const
-const FormBtnLs = getId( 'FormBtnLs' );
+const FormBtnLs = getId( 'FormBtnLs' ),
+      ReqHeader = { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' };
 
-var ReqId;
-var Ary_List = [],
-    Ary_Kind = [];
+// var
+var ReqId,
+    List_Array = [];
 
 // 判斷 舊資料
 if( location.href.includes( '?' ) ) {
@@ -12,19 +13,29 @@ if( location.href.includes( '?' ) ) {
 
     FormBtnLs.insertAdjacentHTML( 'beforeend' ,
         `<div class="form-group">
-            <button class="form-btn" id="FormDelete" onclick="FormDelete()">刪除</button>
+            <button class="form-btn" id="FormDelete" onclick="FormDelete()">
+                <i class="fas fa-trash-alt"></i>
+                刪除
+            </button>
         </div>
         <div class="form-group">
-            <button class="form-btn" id="FormCancel" onclick="FormCancel()">取消</button>
+            <button class="form-btn" id="FormCancel" onclick="FormCancel()">
+                <i class="fas fa-times-circle"></i>
+                取消
+            </button>
         </div>
         <div class="form-group">
-            <button class="form-btn" id="FormApply" onclick="FormApply()">確定</button>
+            <button class="form-btn" id="FormApply" onclick="FormApply()">
+                <i class="fas fa-check-circle"></i>
+                確定
+            </button>
         </div>`
     );
 
+    // 取得資料
     fetch( ReqUrl , {
         method: 'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+        headers: ReqHeader,
         body: JSON.stringify({
             type : 'GET',
             id   : ReqId
@@ -34,14 +45,8 @@ if( location.href.includes( '?' ) ) {
         return res.json()
     
     }).then( ( data ) => {
-        Ary_List = data;
-
-        setTimeout( () => {
-
-            FormHtml();
-            Loading( false );
-
-        } , 500 );
+        List_Array = data;
+        GetKind();
     })
 
 // 判斷 新資料
@@ -49,10 +54,16 @@ if( location.href.includes( '?' ) ) {
 
     FormBtnLs.insertAdjacentHTML( 'beforeend' ,
         `<div class="form-group">
-            <button class="form-btn" id="FormCancel" onclick="FormCancel()">取消</button>
+            <button class="form-btn" id="FormCancel" onclick="FormCancel()">
+                <i class="fas fa-times-circle"></i>    
+                取消
+            </button>
         </div>
         <div class="form-group">
-            <button class="form-btn" id="FormBuild" onclick="FormBuild()">建立</button>
+            <button class="form-btn" id="FormBuild" onclick="FormBuild()">
+                <i class="fas fa-plus-circle"></i>
+                建立
+            </button>
         </div>`
     )
 
@@ -68,7 +79,7 @@ const FormDelete = () => {
 
         fetch( ReqUrl , {
             method: 'POST',
-            headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+            headers: ReqHeader,
             body: JSON.stringify({
                 type : 'DELETE',
                 id   : ReqId
@@ -100,7 +111,7 @@ const FormApply = () => {
 
     fetch( ReqUrl , {
         method: 'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+        headers: ReqHeader,
         body: JSON.stringify( ReqJson( 'PUT' ) )
     
     }).then( ( res ) => {
@@ -120,7 +131,7 @@ const FormBuild = () => {
 
     fetch( ReqUrl , {
         method: 'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+        headers: ReqHeader,
         body: JSON.stringify( ReqJson( 'POST' ) )
     
     }).then( ( res ) => {
@@ -129,7 +140,6 @@ const FormBuild = () => {
     }).then( ( data ) => {
 
         GoBack();
-
     })
 }
 
