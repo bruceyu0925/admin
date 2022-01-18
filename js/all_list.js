@@ -18,7 +18,7 @@ var Data_Array = [],
     Page_Len = 10;
 
 // func 產生頁碼
-PageHtml = () => {
+const PageHtml = () => {
 
     PageList.innerHTML = '';
 
@@ -84,14 +84,14 @@ PageHtml = () => {
 };
 
 // func 頁碼點選
-PageClick = ( n ) => {
+const PageClick = ( n ) => {
     Page_Num = n;
     PageHtml();
     ListHtml();
 };
 
 // func 頁碼判斷
-PageJudge = () => {
+const PageJudge = () => {
 
     if ( Page_All <= 1 ) {
         PagePrev.disabled = true;

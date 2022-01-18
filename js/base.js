@@ -1,15 +1,16 @@
-getId  = n => document.getElementById( n );
-queOne = n => document.querySelector( n );
-queAll = n => document.querySelectorAll( n );
-GAS    = n => `https://script.google.com/macros/s/${ n }/exec`;
+// module
+const getId  = n => document.getElementById( n );
+const queOne = n => document.querySelector( n );
+const queAll = n => document.querySelectorAll( n );
+const GAS    = n => { return `https://script.google.com/macros/s/${ n }/exec` };
 
+// const
 const Load       = getId( 'Load' ),
       Html       = getId( 'Html' ),
       HeaderText = getId( 'HeaderText' );
 
-HeaderText.innerHTML = '您好，Bruce Yu！';
-
-Loading = ( state = true ) => {
+// func 讀取畫面
+const Loading = ( state = true ) => {
 
     if( state === true ) {
         Load.classList.add( '--show' );
@@ -21,7 +22,8 @@ Loading = ( state = true ) => {
     }
 }
 
-DateTran = ( date ) => {
+// func 日期轉換
+const DateTran = ( date ) => {
 
     var n = new Date( date ),
         Y = ( n.getFullYear()  ).toString(),
@@ -39,3 +41,6 @@ DateTran = ( date ) => {
 
     return `${ Y }-${ M }-${ D } ${ h }:${ m }:${ s }`
 }
+
+// carry out 問好
+HeaderText.innerHTML = '您好，Bruce Yu！';

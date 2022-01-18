@@ -8,22 +8,8 @@ const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormText        = getId( 'FormText' ),
       BtnAdd          = getId( 'BtnAdd' );
 
-// fetch GET data
-fetch( GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ) , {
-    method: 'GET'
-    
-}).then( res => {
-    return res.json()
-
-}).then( data => {
-    Data_Array = data;
-    Data_Total = data.length;
-
-    FormSearch.click();
-});
-
 // func 篩選資料
-ListFilter = () => {
+const ListFilter = () => {
 
     Search_Array = [];
 
@@ -69,7 +55,7 @@ ListFilter = () => {
 };
 
 // func 產生清單
-ListHtml = () => {
+const ListHtml = () => {
 
     var i = ( Page_Num - 1 ) * Page_Len,
         l = Page_Num * Page_Len;
@@ -122,3 +108,17 @@ ListHtml = () => {
     }
     PageJudge();
 };
+
+// fetch GET data
+fetch( GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ) , {
+    method: 'GET'
+    
+}).then( res => {
+    return res.json()
+
+}).then( data => {
+    Data_Array = data;
+    Data_Total = data.length;
+
+    FormSearch.click();
+});
