@@ -25,6 +25,11 @@
     width: 400px;
 }
 
+.form-text{
+    margin: 16px 0;
+    color: var(--iron);
+}
+
 #FormDesc{
     resize: none;
     height: 160px;

@@ -1,5 +1,5 @@
 // const
-const FormLink = ( id ) => { return `/backstage/skill_info.html?id=${ id }` };
+const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
 
 const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormBuildLast   = getId( 'FormBuildLast' ),
@@ -22,19 +22,19 @@ const ListFilter = () => {
         uf = FormUpdateFirst.value,
         ul = FormUpdateLast .value;
 
-        bf === '' ? bf = '1900-1-1'   : null;
-        bl === '' ? bl = '9999-12-31' : null;
-        uf === '' ? uf = '1900-1-1'   : null;
-        ul === '' ? ul = '9999-12-31' : null;
+    bf === '' ? bf = '1900-1-1'   : null;
+    bl === '' ? bl = '9999-12-31' : null;
+    uf === '' ? uf = '1900-1-1'   : null;
+    ul === '' ? ul = '9999-12-31' : null;
 
-        bf = DateTran( bf + ' 0:00:00' );
-        bl = DateTran( bl + ' 0:00:00' );
-        uf = DateTran( uf + ' 0:00:00' );
-        ul = DateTran( ul + ' 0:00:00' );
+    bf = DateTran( bf + ' 0:00:00' );
+    bl = DateTran( bl + ' 0:00:00' );
+    uf = DateTran( uf + ' 0:00:00' );
+    ul = DateTran( ul + ' 0:00:00' );
 
-    for( let i = 0 ; i < Data_Total ; i++ ) {
+    for( let i = 0 ; i < List_Total ; i++ ) {
 
-        var d = Data_Array[ i ];
+        var d = List_Array[ i ];
 
         if(
             (
@@ -51,7 +51,6 @@ const ListFilter = () => {
                 DateTran( d[ 'DateUpdate' ] ) <= ul
             )
             ) {
-
                 Search_Array.push( d )
         }
     };
@@ -71,13 +70,13 @@ const ListHtml = () => {
 
         // 轉換資料
         var a = Search_Array[ i ],
-            id         = a[ 'Id' ],
-            title      = a[ 'Title' ],
-            desc       = a[ 'Desc' ],
-            kind       = a[ 'Kind' ].toString(),
-            score      = a[ 'Score' ],
-            datebuild  = DateTran( a[ 'DateBuild' ] ),
-            dateupdate = DateTran( a[ 'DateUpdate' ] ),
+            id         = a.Id,
+            title      = a.Title,
+            desc       = a.Desc,
+            kind       = a.Kind.toString(),
+            score      = a.Score,
+            datebuild  = DateTran( a.DateBuild ),
+            dateupdate = DateTran( a.DateUpdate ),
             link       = FormLink( id );
 
         // 轉換類別ID
@@ -122,33 +121,27 @@ const ListHtml = () => {
     PageJudge();
 };
 
-// fetch GET kind
-const GetKind = () => {
+// GET
+Promise.all([
+    GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
+    GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' )
 
-    fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
+].map( req =>
+
+    fetch( req , {
         method: 'GET'
         
-    }).then( res => {
+    }).then( ( res ) => {
         return res.json()
+        
+    }).then( ( data ) => {
+        return data
+    })
 
-    }).then( data => {
-        Kind_Array = data;
-        Kind_Total = data.length;
-
-        FormSearch.click();
-    });
-};
-
-// fetch GET data
-fetch( GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ) , {
-    method: 'GET'
-    
-}).then( res => {
-    return res.json()
-
-}).then( data => {
-    Data_Array = data;
-    Data_Total = data.length;
-
-    GetKind();
+)).then( ary => {
+    List_Array = ary[ 0 ];
+    List_Total = ary[ 0 ].length;
+    Kind_Array = ary[ 1 ];
+    Kind_Total = ary[ 1 ].length;
+    FormSearch.click();
 });

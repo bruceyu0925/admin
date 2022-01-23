@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" id="Html" class="--lock">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/Meyerweb.css">
+    <link rel="stylesheet" href="/admin/css/base.css">
+    <link rel="stylesheet" href="/admin/css/info.css">
+    <link rel="stylesheet" href="/admin/skill/css/info.css">
+</head>
+
+<body>
+    <header id="Header">
+        <a href="#">
+            <img src="/admin/image/logo.svg" class="__imgresp" alt="Bruce Yu Design">
+        </a>
+        <div class="header-body">
+            <span id="HeaderText"></span>
+            <button id="BtbSet" class="header-btn">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button id="BtbLogout" class="header-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+    <aside id="Aside">
+        <a class="aside-li" href="#">
+            <i class="fas fa-user-alt"></i>
+            帳號管理
+        </a>
+        <a class="aside-li --click" href="/admin/skill/index.html">
+            <i class="fas fa-wrench"></i>
+            技能管理
+        </a>
+        <a class="aside-li" href="#">
+            <i class="fas fa-image"></i>
+            海報管理
+        </a>
+        <a class="aside-li" href="#">
+            <i class="fas fa-palette"></i>
+            繪圖管理
+        </a>
+    </aside>
+    <main id="Main">
+
+        <div id="Form">
+
+            <div class="form-row">
+
+                <div class="form-col">
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormTitle">標題</label>
+                        <input type="text" class="form-input" name="FormTitle" id="FormTitle">
+                    </div>
+            
+                    <div class="form-group">
+                        <label class="form-label" for="FormDesc">描述</label>
+                        <textarea name="FormDesc" id="FormDesc" class="form-input" cols="30" rows="10"></textarea>
+                    </div>
+        
+                    <div class="form-group">
+                        <label class="form-label" for="FormScore">分數</label>
+                        <input type="number" class="form-input" name="FormScore" id="FormScore" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormKind">分類</label>
+                        <div class="" id="FormKind">
+                        </div>
+                    </div>
+    
+                </div>            
+
+                <div class="form-col">
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormId">ID</label>
+                        <p class="form-text" id="FormId">-</p>
+                    </div>
+        
+                    <div class="form-group">
+                        <label class="form-label" for="FormDateBuild">建立日期</label>
+                        <p class="form-text" id="FormDateBuild">-</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormDateUpdate">更新日期</label>
+                        <p class="form-text" id="FormDateUpdate">-</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-row" id="FormBtnLs">
+                <div class="form-group">
+                    <button class="form-btn" id="FormDelete">
+                        <i class="fas fa-trash-alt"></i>刪除
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button class="form-btn" id="FormCancel">
+                        <i class="fas fa-times-circle"></i>取消
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button class="form-btn" id="FormApply">
+                        <i class="fas fa-check-circle"></i>確定
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        
+    </main>
+    <div id="Load" class="--show">
+        <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
+    </div>
+</body>
+
+<script src="/admin/js/base.js"></script>
+<script src="/admin/skill/js/upload.js"></script>
+
+</html>
