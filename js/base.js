@@ -1,24 +1,19 @@
 // module
-const getId  = n => document.getElementById( n );
-const queOne = n => document.querySelector( n );
-const queAll = n => document.querySelectorAll( n );
-const GAS    = n => { return `https://script.google.com/macros/s/${ n }/exec` };
-
-// const
-const Load       = getId( 'Load' ),
-      Html       = getId( 'Html' ),
-      HeaderText = getId( 'HeaderText' );
+const getId  = n => document.getElementById( n ),
+      queOne = n => document.querySelector( n ),
+      queAll = n => document.querySelectorAll( n ),
+      GAS    = n => { return `https://script.google.com/macros/s/${ n }/exec` };
 
 // func 讀取畫面
 const Loading = ( state = true ) => {
 
     if( state === true ) {
-        Load.classList.add( '--show' );
-        Html.classList.add( '--lock' );
+        getId( 'Load' ).classList.add( '--show' );
+        getId( 'Html' ).classList.add( '--lock' );
 
     } else if( state === false ) {
-        Load.classList.remove( '--show' );
-        Html.classList.remove( '--lock' );
+        getId( 'Load' ).classList.remove( '--show' );
+        getId( 'Html' ).classList.remove( '--lock' );
     }
 }
 
@@ -41,6 +36,87 @@ const DateTran = ( date ) => {
 
     return `${ Y }-${ M }-${ D } ${ h }:${ m }:${ s }`
 }
+!function() {
 
-// carry out 問好
-HeaderText.innerHTML = '您好，Bruce Yu！';
+    // 共用dom
+    getId( 'Header' ).innerHTML =
+        `<a href="#">
+            <img src="/admin/image/logo.svg" class="__imgresp" alt="Bruce Yu Design">
+        </a>
+        <div class="header-body">
+            <span id="HeaderText"></span>
+            <button id="BtbSet" class="header-btn">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button id="BtbLogout" class="header-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>`;
+
+    getId( 'Aside' ).innerHTML =
+        `<a id="AsideAccount" class="aside-li" href="/admin/account/index.html">
+            <i class="fas fa-user-alt"></i>
+            帳號管理
+        </a>
+        <a id="AsidePoster" class="aside-li" href="/admin/poster/index.html">
+            <i class="fas fa-image"></i>
+            海報管理
+        </a>
+        <a id="AsidePaint" class="aside-li" href="/admin/paint/index.html">
+            <i class="fas fa-palette"></i>
+            繪圖管理
+        </a>
+        <a id="AsideSkill" class="aside-li" href="/admin/skill/index.html">
+            <i class="fas fa-wrench"></i>
+            技能管理
+        </a>`;
+
+    // 路徑
+    var href = ( location.href ).toString(),
+        path = '';
+
+    switch( true ) {
+
+        case href.match( 'account' ) !== null:
+            getId( 'AsideAccount' ).classList.add( '--click' );
+            getId( 'HeadTitle' ).innerHTML = '帳號管理';
+            path += '帳號管理';
+            break;
+
+        case href.match( 'poster' ) !== null:
+            getId( 'AsidePoster' ).classList.add( '--click' );
+            getId( 'HeadTitle' ).innerHTML = '海報管理';
+            path += '海報管理';
+            break;
+
+        case href.match( 'paint' ) !== null:
+            getId( 'AsidePaint' ).classList.add( '--click' );
+            getId( 'HeadTitle' ).innerHTML = '繪圖管理';
+            path += '繪圖管理';
+            break;
+
+        case href.match( 'skill' ) !== null:
+            getId( 'AsideSkill' ).classList.add( '--click' );
+            getId( 'HeadTitle' ).innerHTML = '技能管理';
+            path += '技能管理';
+            break;
+    }
+
+    href.match( 'kind' ) ? path += ' ／ 類別' : null;
+
+    switch( true ) {
+
+        case href.match( 'create' ) !== null:
+            path += ' ／ 新增';
+            break;
+
+        case href.match( 'upload' ) !== null:
+            path += ' ／ 修改';
+            break;
+    }
+
+    getId( 'PathText' ).innerHTML = path;
+
+    // 歡迎語
+    getId( 'HeaderText' ).innerHTML = '您好，Bruce Yu！';
+}()

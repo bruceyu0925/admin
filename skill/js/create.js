@@ -12,8 +12,7 @@ const FormCancel = getId( 'FormCancel' ),
       FormBuild  = getId( 'FormBuild' );
 
 // const
-const ReqId   = '?' + location.href.split( '?' )[ 1 ],
-      BackUrl = '/admin/skill/index.html';
+const BackUrl = '/admin/skill/index.html';
 
 // var
 var Kind_Array = [];

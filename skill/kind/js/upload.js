@@ -1,8 +1,5 @@
 // const 表單
 const FormTitle      = getId( 'FormTitle' ),
-      FormDesc       = getId( 'FormDesc' ),
-      FormScore      = getId( 'FormScore' ),
-      FormKind       = getId( 'FormKind' ),
       FormId         = getId( 'FormId' ),
       FormDateBuild  = getId( 'FormDateBuild' ),
       FormDateUpdate = getId( 'FormDateUpdate' );
@@ -14,7 +11,7 @@ const FormDelete = getId( 'FormDelete' ),
 
 // const
 const ReqId   = '?' + location.href.split( '?' )[ 1 ],
-      BackUrl = '/admin/skill/index.html';
+      BackUrl = '/admin/skill/kind/index.html';
 
 // var
 var List_Array = [],
@@ -24,52 +21,21 @@ var List_Array = [],
 const InputData = () => {
 
     // 欄位
-    FormTitle     .value     = List_Array.Title;
-    FormDesc      .value     = List_Array.Desc;
-    FormScore     .value     = List_Array.Score;
+    FormTitle     .value     = List_Array.Kind;
     FormId        .innerHTML = List_Array.Id;
     FormDateBuild .innerHTML = DateTran( List_Array.DateBuild );
     FormDateUpdate.innerHTML = DateTran( List_Array.DateUpdate );
-
-    // 核取方塊
-    Kind_Array.forEach( el => {
-
-        var c = List_Array.Kind.toString(),
-            v = el.Id,
-            t = el.Kind,
-            j = '';
-
-        // 已核取
-        c.match( v ) ? j = ' checked' : null;
-
-        // dom
-        FormKind.insertAdjacentHTML( 'beforeend' ,
-            `<label class="form-kind-li">
-                <input type="checkbox" class="form-checkbox" name="FormKind" value="${ v }"${ j }
-                    onclick="this.toggleAttribute( 'checked' )">
-                <span>${ t }</span>
-            </label>`
-        )
-    })
 };
 
 // GET
-Promise.all([
-    GAS( 'AKfycbyZkWOWGJycI0psUMiWfOVq4rmYN1Fb2-rHu6NVVym9ApdqZmcZGhaVWuiH_OyI6ZJ_WQ' ) + ReqId,
-    GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' )
-
-].map( req =>
-
-    fetch( req , {
-        method: 'GET'
+fetch( GAS( 'AKfycbwd7Ic8yeDuntx7d3zVPZmd_-ey_K3ECXezil27nfVMEm72Gg_Gsra_Rai_Kec7rD0MXg' ) + ReqId , {
+    method: 'GET'
         
-    }).then( ( res ) => {
-        return res.json()
-    })
+}).then( ( res ) => {
+    return res.json()
 
-)).then( ary => {
-    List_Array = ary[ 0 ];
-    Kind_Array = ary[ 1 ];
+}).then( ary => {
+    List_Array = ary;
     InputData();
     Loading( false );
 
@@ -84,7 +50,7 @@ FormDelete.onclick = () => {
     if ( confirm( '確定刪除此項設定嗎？' ) ) {
         Loading( true );
 
-        fetch( GAS( 'AKfycbzKKG4MKZBAHybZkTwmk-A1PgugFVzOsB1S4anK-kESvhfyN7ElYW4N08c0obVS5NX9' ) + ReqId , {
+        fetch( GAS( 'AKfycbx2VPd35csBHOQosY4YvU8RligUFpJ4cVrgqhcziiRShL_6MufDVVCS81UJNYNpmqwhBg' ) + ReqId , {
             method:  'POST'
         
         }).then( ( res ) => {
@@ -100,20 +66,12 @@ FormDelete.onclick = () => {
 // PUT
 FormApply.onclick = () => {
     Loading( true );
-
-    var k = [];
-    queAll( '.form-checkbox' ).forEach( el => {
-        el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
-    });
     
-    fetch( GAS( 'AKfycbyJgWX4R7H4y7k16qCSp1UgX1_e9zxq-T44DRi8Oqu5xCfumOsnPC6C3rISX-MkzOjrxw' ) + ReqId , {
+    fetch( GAS( 'AKfycbyKZVAnZ314lj2TlxwtZzERF3MKyWcCLi9xoaRZNFKQ0WY8Tqd9-DHO0_PJ14_yIlzUwg' ) + ReqId , {
         method:  'POST',
         headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
         body:    JSON.stringify({
-                    title : FormTitle.value,
-                    desc  : FormDesc .value,
-                    score : FormScore.value,
-                    kind  : k.join( ',' )
+                    kind: FormTitle.value
                 })
     
     }).then( ( res ) => {
@@ -128,20 +86,6 @@ FormApply.onclick = () => {
 // 取消
 FormCancel.onclick = () => {
     confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
-};
-
-// 分數防呆
-FormScore.onkeyup = function() {
-
-    var v = this.value;
-
-    if( v > 100 ) {
-        v = 100
-
-    } else if ( v < 0 ) {
-        v = 0
-    };
-    this.value = Math.round( v );
 };
 
 // event 若有修改，離開頁面前詢問

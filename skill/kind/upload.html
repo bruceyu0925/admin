@@ -30,24 +30,8 @@
                 <div class="form-col">
 
                     <div class="form-group">
-                        <label class="form-label" for="FormTitle">標題</label>
+                        <label class="form-label" for="FormTitle">類別名稱</label>
                         <input type="text" class="form-input" name="FormTitle" id="FormTitle">
-                    </div>
-            
-                    <div class="form-group">
-                        <label class="form-label" for="FormDesc">描述</label>
-                        <textarea name="FormDesc" id="FormDesc" class="form-input" cols="30" rows="10"></textarea>
-                    </div>
-        
-                    <div class="form-group">
-                        <label class="form-label" for="FormScore">分數</label>
-                        <input type="number" class="form-input" name="FormScore" id="FormScore" min="0" max="100">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="FormKind">分類</label>
-                        <div class="" id="FormKind">
-                        </div>
                     </div>
     
                 </div>            
@@ -74,24 +58,26 @@
             </div>
 
             <div class="form-row" id="FormBtnLs">
-
+                <div class="form-group">
+                    <button class="form-btn" id="FormDelete">
+                        <i class="fas fa-trash-alt"></i>刪除
+                    </button>
+                </div>
                 <div class="form-group">
                     <button class="form-btn" id="FormCancel">
                         <i class="fas fa-times-circle"></i>取消
                     </button>
                 </div>
                 <div class="form-group">
-                    <button class="form-btn" id="FormBuild">
-                        <i class="fas fa-plus-circle"></i>建立
+                    <button class="form-btn" id="FormApply">
+                        <i class="fas fa-check-circle"></i>確定
                     </button>
                 </div>
-                
             </div>
 
         </div>
         
     </main>
-    
     <div id="Load" class="--show">
         <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
     </div>
@@ -100,6 +86,6 @@
 <script src="/admin/js/base.js"></script>
 
 <!-- JS -->
-<script src="/admin/skill/js/create.js"></script>
+<script src="/admin/skill/kind/js/upload.js"></script>
 
 </html>

@@ -53,7 +53,6 @@
     color: var(--blue);
     background-color: var(--light);
     box-shadow: var(--shadow);
-    border-radius: 12px;
 }
 
 #BtnAdd > i {
@@ -75,6 +74,7 @@
 table{
     border-collapse: separate;
     border-spacing: 0 16px;
+    width: 100%;
 }
 
 tbody {
@@ -84,7 +84,6 @@ tbody {
 tr{
     width: 100%;
     overflow: hidden;
-    border-radius: 12px;
     box-shadow: var(--shadow);
 }
 
@@ -107,16 +106,6 @@ tbody > tr > td{
     padding: 32px 8px;
     color: var(--dark);
     background-color: var(--light);
-}
-
-td:first-child{
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-}
-
-td:last-child{
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
 }
 
 .td-sort-btn{
@@ -173,7 +162,6 @@ td:last-child{
 .page-btn{
     border: 1px solid var(--blue);
     background-color: transparent;
-    border-radius: 4px;
 }
 
 .page-btn[disabled]{

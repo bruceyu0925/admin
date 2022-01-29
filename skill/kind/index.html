@@ -13,7 +13,7 @@
 
     <!-- Css -->
     <link rel="stylesheet" href="/admin/css/list.css">
-    <link rel="stylesheet" href="/admin/skill/css/list.css">
+    <link rel="stylesheet" href="/admin/skill/kind/css/list.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             <div class="form-row --left">
 
                 <div class="form-group">
-                    <a class="form-btn" id="FormKind" href="/admin/skill/kind/index.html">類別管理</a>
+                    <a class="form-btn" id="FormKind" href="/admin/skill/index.html">返回列表</a>
                 </div>
 
             </div>
@@ -90,7 +90,7 @@
 
         </div>
         <div id="SearchTotal"></div>
-        <a id="BtnAdd" href="/admin/skill/create.html">
+        <a id="BtnAdd" href="/admin/skill/kind/create.html">
             <i class="fas fa-plus-circle"></i>
             新增資料
         </a>
@@ -108,20 +108,7 @@
                             </button>
                         </td>
                         <td>
-                            標題
-                        </td>
-                        <td>
-                            描述
-                        </td>
-                        <td>
-                            分類
-                        </td>
-                        <td>
-                            分數
-                            <button class="td-sort-btn --max" value="Score">
-                                <i class="fas fa-caret-up"></i>
-                                <i class="fas fa-caret-down"></i>
-                            </button>
+                            類別
                         </td>
                         <td>
                             建立日期
@@ -156,7 +143,6 @@
             </button>
         </div>
     </main>
-    
     <div id="Load" class="--show">
         <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
     </div>
@@ -166,6 +152,6 @@
 
 <!-- JS -->
 <script src="/admin/js/page.js"></script>
-<script src="/admin/skill/js/list.js"></script>
+<script src="/admin/skill/kind/js/list.js"></script>
 
 </html>

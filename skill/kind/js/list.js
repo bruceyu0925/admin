@@ -1,5 +1,5 @@
 // const
-const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
+const FormLink = ( id ) => { return `/admin/skill/kind/upload.html?id=${ id }` };
 
 const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormBuildLast   = getId( 'FormBuildLast' ),
@@ -14,32 +14,21 @@ const BtnAdd      = getId( 'BtnAdd' ),
       TheadSort   = queAll( '.td-sort-btn' ),
       Tbody       = getId( 'Tbody' );
 
-var Kind_Array = [],
-    Kind_Total,
-    Data_Array = [],
+var Data_Array = [],
     Data_Total,
     Search_Array = [],
     Search_Total;
 
 // GET
-Promise.all([
-    GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
-    GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' )
-
-].map( req =>
-
-    fetch( req , {
-        method: 'GET'
+fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
+    method: 'GET'
         
-    }).then( ( res ) => {
-        return res.json()
-    })
+}).then( ( res ) => {
+    return res.json()
 
-)).then( ary => {
-    List_Array = ary[ 0 ];
-    List_Total = ary[ 0 ].length;
-    Kind_Array = ary[ 1 ];
-    Kind_Total = ary[ 1 ].length;
+}).then( ary => {
+    List_Array = ary;
+    List_Total = ary.length;
     FormSearch.click();
 });
 
@@ -70,8 +59,6 @@ const ListFilter = () => {
 
         if(
             (
-                d[ 'Title' ].indexOf( t ) != -1 ||
-                d[ 'Desc' ] .indexOf( t ) != -1 ||
                 d[ 'Kind' ] .indexOf( t ) != -1
             ) &&
             (
@@ -103,19 +90,10 @@ const ListHtml = () => {
         // 轉換資料
         var a = Search_Array[ i ],
             id         = a.Id,
-            title      = a.Title,
-            desc       = a.Desc,
-            kind       = a.Kind.toString(),
-            score      = a.Score,
+            kind       = a.Kind,
             datebuild  = DateTran( a.DateBuild ),
             dateupdate = DateTran( a.DateUpdate ),
             link       = FormLink( id );
-
-        // 轉換類別ID
-        for( let i = 0 ; i < Kind_Total ; i++ ) {
-
-            kind = kind.replace( ( Kind_Array[ i ][ 'Id' ] ) , Kind_Array[ i ][ 'Kind' ] )
-        };
 
         // 輸出DOM
         Tbody.insertAdjacentHTML( 'beforeend' , 
@@ -129,16 +107,7 @@ const ListHtml = () => {
                     ${ id }
                 </td>
                 <td class="__center">
-                    ${ title }
-                </td>
-                <td class="__left">
-                    ${ desc }
-                </td>
-                <td class="__center">
                     ${ kind }
-                </td>
-                <td class="__center">
-                    ${ score }
                 </td>
                 <td class="__center">
                     ${ datebuild }
