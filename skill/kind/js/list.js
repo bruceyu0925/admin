@@ -6,18 +6,11 @@ const FormBuildFirst  = getId( 'FormBuildFirst' ),
       FormUpdateFirst = getId( 'FormUpdateFirst' ),
       FormUpdateLast  = getId( 'FormUpdateLast' ),
       FormText        = getId( 'FormText' ),
-      FormReset       = getId( 'FormReset' ),
-      FormSearch      = getId( 'FormSearch' );
-
-const BtnAdd      = getId( 'BtnAdd' ),
-      SearchTotal = getId( 'SearchTotal' ),
-      TheadSort   = queAll( '.td-sort-btn' ),
-      Tbody       = getId( 'Tbody' );
+      BtnAdd          = getId( 'BtnAdd' ),
+      Tbody           = getId( 'Tbody' );
 
 var Data_Array = [],
-    Data_Total,
-    Search_Array = [],
-    Search_Total;
+    Data_Total;
 
 // GET
 fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
@@ -121,55 +114,3 @@ const ListHtml = () => {
     }
     PageJudge();
 };
-
-// event 執行搜尋
-FormSearch.onclick = () => {
-
-    Loading( true );
-    ListFilter();
-
-    var s = queOne( '.td-sort-btn.--click' ),
-        v = s.value;
-
-    // 處理排序
-    Search_Array.sort( ( a , b ) => {
-
-        if( s.classList.contains( '--max' ) ) {
-            return a[ v ] < b[ v ] ? 1 : -1
-
-        } else if( s.classList.contains( '--min' ) ) {
-            return a[ v ] > b[ v ] ? 1 : -1
-        }
-    });
-
-    // 處理參數
-    Search_Total = Search_Array.length;
-    Page_All     = Math.ceil( Search_Total / Page_Len );
-    Page_Num     = 1;
-    
-    setTimeout( () => {
-        Loading( false );
-        PageHtml();
-        ListHtml();
-        SearchTotal.innerHTML = '共 ' + Search_Total + ' 筆資料';
-    } , 300 );
-};
-
-// event 重設搜尋
-FormReset.onclick = () => {
-    queAll( '.form-input' ).forEach( el => el.value = '' );
-    FormSearch.click();
-};
-
-// event 切換排序
-TheadSort.forEach( el => {
-    el.onclick = () => {
-        if( el.classList.contains( '--click' ) ) {
-            el.classList.toggle( '--max' );
-            el.classList.toggle( '--min' );
-        }
-        queOne( '.td-sort-btn.--click' ).classList.remove( '--click' );
-        el.classList.add( '--click' );
-        FormSearch.click();
-    }
-});
