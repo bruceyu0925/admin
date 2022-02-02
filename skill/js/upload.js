@@ -1,17 +1,3 @@
-// const 表單
-const FormTitle      = getId( 'FormTitle' ),
-      FormDesc       = getId( 'FormDesc' ),
-      FormScore      = getId( 'FormScore' ),
-      FormKind       = getId( 'FormKind' ),
-      FormId         = getId( 'FormId' ),
-      FormDateBuild  = getId( 'FormDateBuild' ),
-      FormDateUpdate = getId( 'FormDateUpdate' );
-
-// const 按鈕
-const FormDelete = getId( 'FormDelete' ),
-      FormCancel = getId( 'FormCancel' ),
-      FormApply  = getId( 'FormApply' );
-
 // const
 const ReqId   = '?' + location.href.split( '?' )[ 1 ],
       BackUrl = '/admin/skill/index.html';
@@ -24,12 +10,12 @@ var List_Array = [],
 const InputData = () => {
 
     // 欄位
-    FormTitle     .value     = List_Array.Title;
-    FormDesc      .value     = List_Array.Desc;
-    FormScore     .value     = List_Array.Score;
-    FormId        .innerHTML = List_Array.Id;
-    FormDateBuild .innerHTML = DateTran( List_Array.DateBuild );
-    FormDateUpdate.innerHTML = DateTran( List_Array.DateUpdate );
+    getId( 'FormTitle' )     .value     = List_Array.Title;
+    getId( 'FormDesc' )      .value     = List_Array.Desc;
+    getId( 'FormScore' )     .value     = List_Array.Score;
+    getId( 'FormId' )        .innerHTML = List_Array.Id;
+    getId( 'FormDateBuild' ) .innerHTML = DateTran( List_Array.DateBuild );
+    getId( 'FormDateUpdate' ).innerHTML = DateTran( List_Array.DateUpdate );
 
     // 核取方塊
     Kind_Array.forEach( el => {
@@ -43,9 +29,9 @@ const InputData = () => {
         c.match( v ) ? j = ' checked' : null;
 
         // dom
-        FormKind.insertAdjacentHTML( 'beforeend' ,
+        getId( 'FormKind' ).insertAdjacentHTML( 'beforeend' ,
             `<label class="form-kind-li">
-                <input type="checkbox" class="form-checkbox" name="FormKind" value="${ v }"${ j }
+                <input type="checkbox" class="form-checkbox" name="getId( 'FormKind' )" value="${ v }"${ j }
                     onclick="this.toggleAttribute( 'checked' )">
                 <span>${ t }</span>
             </label>`
@@ -79,7 +65,7 @@ Promise.all([
 });
 
 // DELETE
-FormDelete.onclick = () => {
+getId( 'FormDelete' ).onclick = () => {
 
     if ( confirm( '確定刪除此項設定嗎？' ) ) {
         Loading( true );
@@ -98,7 +84,7 @@ FormDelete.onclick = () => {
 };
 
 // PUT
-FormApply.onclick = () => {
+getId( 'FormApply' ).onclick = () => {
     Loading( true );
 
     var k = [];
@@ -110,9 +96,9 @@ FormApply.onclick = () => {
         method:  'POST',
         headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
         body:    JSON.stringify({
-                    title : FormTitle.value,
-                    desc  : FormDesc .value,
-                    score : FormScore.value,
+                    title : getId( 'FormTitle' ).value,
+                    desc  : getId( 'FormDesc' ) .value,
+                    score : getId( 'FormScore' ).value,
                     kind  : k.join( ',' )
                 })
     
@@ -126,12 +112,12 @@ FormApply.onclick = () => {
 };
 
 // 取消
-FormCancel.onclick = () => {
+getId( 'FormCancel' ).onclick = () => {
     confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
 };
 
 // 分數防呆
-FormScore.onkeyup = function() {
+getId( 'FormScore' ).onkeyup = function() {
 
     var v = this.value;
 
@@ -143,16 +129,3 @@ FormScore.onkeyup = function() {
     };
     this.value = Math.round( v );
 };
-
-// event 若有修改，離開頁面前詢問
-// queAll( '.form-input' ).forEach( el => {
-
-//     el.onchange = () => {
-
-//         window.onbeforeunload = ( e ) => {
-
-//             var e = window.event || e;
-//             e.returnValue = true;
-//         }
-//     }
-// });

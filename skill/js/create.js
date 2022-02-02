@@ -1,16 +1,3 @@
-// const 表單
-const FormTitle      = getId( 'FormTitle' ),
-      FormDesc       = getId( 'FormDesc' ),
-      FormScore      = getId( 'FormScore' ),
-      FormKind       = getId( 'FormKind' ),
-      FormId         = getId( 'FormId' ),
-      FormDateBuild  = getId( 'FormDateBuild' ),
-      FormDateUpdate = getId( 'FormDateUpdate' );
-
-// const 按鈕
-const FormCancel = getId( 'FormCancel' ),
-      FormBuild  = getId( 'FormBuild' );
-
 // const
 const BackUrl = '/admin/skill/index.html';
 
@@ -27,9 +14,9 @@ const InputData = () => {
             t = el.Kind;
 
         // dom
-        FormKind.insertAdjacentHTML( 'beforeend' ,
+        getId( 'FormKind' ).insertAdjacentHTML( 'beforeend' ,
             `<label class="form-kind-li">
-                <input type="checkbox" class="form-checkbox" name="FormKind" value="${ v }"
+                <input type="checkbox" class="form-checkbox" name="getId( 'FormKind' )" value="${ v }"
                     onclick="this.toggleAttribute( 'checked' )">
                 <span>${ t }</span>
             </label>`
@@ -51,7 +38,7 @@ fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAE
 });
 
 // POST
-FormBuild.onclick = () => {
+getId( 'FormBuild' ).onclick = () => {
     Loading( true );
 
     var k = [];
@@ -63,9 +50,9 @@ FormBuild.onclick = () => {
         method:  'POST',
         headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
         body:    JSON.stringify({
-                    title : FormTitle.value,
-                    desc  : FormDesc .value,
-                    score : FormScore.value,
+                    title : getId( 'FormTitle' ).value,
+                    desc  : getId( 'FormDesc' ) .value,
+                    score : getId( 'FormScore' ).value,
                     kind  : k.join( ',' )
                 })
     
@@ -78,12 +65,12 @@ FormBuild.onclick = () => {
 };
 
 // 取消
-FormCancel.onclick = () => {
+getId( 'FormCancel' ).onclick = () => {
     confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
 };
 
 // 分數防呆
-FormScore.onkeyup = function() {
+getId( 'FormScore' ).onkeyup = function() {
 
     var v = this.value;
 

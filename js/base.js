@@ -36,13 +36,19 @@ const DateTran = ( date ) => {
 
     return `${ Y }-${ M }-${ D } ${ h }:${ m }:${ s }`
 }
+
 !function() {
 
     // 共用dom
     getId( 'Header' ).innerHTML =
-        `<a href="#">
-            <img src="/admin/image/logo.svg" class="__imgresp" alt="Bruce Yu Design">
-        </a>
+        `<div class="header-head">
+            <button id="BtnBurger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a class="header-logo" href="#">
+                <img src="/admin/image/logo.svg" class="__imgresp" alt="Bruce Yu Design">
+            </a>
+        </div>
         <div class="header-body">
             <span id="HeaderText"></span>
             <button id="BtbSet" class="header-btn">
@@ -54,7 +60,11 @@ const DateTran = ( date ) => {
         </div>`;
 
     getId( 'Aside' ).innerHTML =
-        `<a id="AsideAccount" class="aside-li" href="/admin/account/index.html">
+        `<a id="AsideHome" class="aside-li" href="/admin/index.html">
+            <i class="fas fa-home"></i>
+            首頁
+        </a>
+        <a id="AsideAccount" class="aside-li" href="/admin/account/index.html">
             <i class="fas fa-user-alt"></i>
             帳號管理
         </a>
@@ -120,3 +130,8 @@ const DateTran = ( date ) => {
     // 歡迎語
     getId( 'HeaderText' ).innerHTML = '您好，Bruce Yu！';
 }()
+
+getId( 'BtnBurger' ).onclick = () => {
+    getId( 'Aside' ).classList.toggle( '--show' );
+    getId( 'Main' ).classList.toggle( '--lock' )
+}

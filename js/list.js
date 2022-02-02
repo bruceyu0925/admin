@@ -1,9 +1,5 @@
 // Page --------------------------------------------------
 
-const PagePrev = getId( 'PagePrev' ),
-      PageNext = getId( 'PageNext' ),
-      PageList = getId( 'PageList' );
-
 var Page_All,
     Page_Num,
     Page_Len = 10;
@@ -11,7 +7,7 @@ var Page_All,
 // func 產生頁碼
 const PageHtml = () => {
 
-    PageList.innerHTML = '';
+    getId( 'PageList' ).innerHTML = '';
 
     var l = [];
     
@@ -70,7 +66,7 @@ const PageHtml = () => {
     }
     // 產生dom
     l.forEach( el => 
-        PageList.insertAdjacentHTML( 'beforeend' , p( el ) ) 
+        getId( 'PageList' ).insertAdjacentHTML( 'beforeend' , p( el ) ) 
     );
 };
 
@@ -85,20 +81,20 @@ const PageClick = ( n ) => {
 const PageJudge = () => {
 
     if ( Page_All <= 1 ) {
-        PagePrev.disabled = true;
-        PageNext.disabled = true;
+        getId( 'PagePrev' ).disabled = true;
+        getId( 'PageNext' ).disabled = true;
 
     } else if ( Page_Num === 1 ) {
-        PagePrev.disabled = true;
-        PageNext.disabled = false;
+        getId( 'PagePrev' ).disabled = true;
+        getId( 'PageNext' ).disabled = false;
 
     } else if ( Page_Num === Page_All ) {
-        PagePrev.disabled = false;
-        PageNext.disabled = true;
+        getId( 'PagePrev' ).disabled = false;
+        getId( 'PageNext' ).disabled = true;
         
     } else {
-        PagePrev.disabled = false;
-        PageNext.disabled = false;
+        getId( 'PagePrev' ).disabled = false;
+        getId( 'PageNext' ).disabled = false;
     };
 
     try {
@@ -111,24 +107,21 @@ const PageJudge = () => {
 };
 
 // event 上一頁
-PagePrev.onclick = () => PageClick( Page_Num - 1 );
+getId( 'PagePrev' ).onclick = () => PageClick( Page_Num - 1 );
 
 // event 下一頁
-PageNext.onclick = () => PageClick( Page_Num + 1 );
+getId( 'PageNext' ).onclick = () => PageClick( Page_Num + 1 );
 
 
 // List --------------------------------------------------
 
-const FormReset   = getId( 'FormReset' ),
-      FormSearch  = getId( 'FormSearch' ),
-      SearchTotal = getId( 'SearchTotal' ),
-      TheadSort   = queAll( '.td-sort-btn' );
-
-var Search_Array = [],
+var List_Array = [],
+    List_Total,
+    Search_Array = [],
     Search_Total;
 
 // event 執行搜尋
-FormSearch.onclick = () => {
+getId( 'FormSearch' ).onclick = () => {
 
     Loading( true );
     ListFilter();
@@ -153,28 +146,37 @@ FormSearch.onclick = () => {
     Page_Num     = 1;
     
     setTimeout( () => {
+
         Loading( false );
         PageHtml();
         ListHtml();
-        SearchTotal.innerHTML = '共 ' + Search_Total + ' 筆資料';
+
+        getId( 'SearchTotal' ).innerHTML = '共 ' + Search_Total + ' 筆資料';
+        
     } , 300 );
 };
 
 // event 重設搜尋
-FormReset.onclick = () => {
+getId( 'FormReset' ).onclick = () => {
+
     queAll( '.form-input' ).forEach( el => el.value = '' );
-    FormSearch.click();
+    getId( 'FormSearch' ).click();
 };
 
 // event 切換排序
-TheadSort.forEach( el => {
+queAll( '.td-sort-btn' ).forEach( el => {
+
     el.onclick = () => {
+
         if( el.classList.contains( '--click' ) ) {
+
             el.classList.toggle( '--max' );
             el.classList.toggle( '--min' );
         }
+
         queOne( '.td-sort-btn.--click' ).classList.remove( '--click' );
         el.classList.add( '--click' );
-        FormSearch.click();
+
+        getId( 'FormSearch' ).click();
     }
 });

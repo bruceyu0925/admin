@@ -1,19 +1,6 @@
 // const
 const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
 
-const FormBuildFirst  = getId( 'FormBuildFirst' ),
-      FormBuildLast   = getId( 'FormBuildLast' ),
-      FormUpdateFirst = getId( 'FormUpdateFirst' ),
-      FormUpdateLast  = getId( 'FormUpdateLast' ),
-      FormText        = getId( 'FormText' ),
-      BtnAdd          = getId( 'BtnAdd' ),
-      Tbody           = getId( 'Tbody' );
-
-var Kind_Array = [],
-    Kind_Total,
-    Data_Array = [],
-    Data_Total;
-
 // GET
 Promise.all([
     GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
@@ -29,10 +16,18 @@ Promise.all([
     })
 
 )).then( ary => {
+
     List_Array = ary[ 0 ];
     List_Total = ary[ 0 ].length;
-    Kind_Array = ary[ 1 ];
-    Kind_Total = ary[ 1 ].length;
+
+    List_Array.forEach( el => {
+
+        for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
+            
+            el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
+        };
+    })
+
     FormSearch.click();
 });
 
@@ -41,11 +36,11 @@ const ListFilter = () => {
 
     Search_Array = [];
 
-    var t  = FormText       .value,
-        bf = FormBuildFirst .value,
-        bl = FormBuildLast  .value,
-        uf = FormUpdateFirst.value,
-        ul = FormUpdateLast .value;
+    var t  = getId( 'FormText' )       .value,
+        bf = getId( 'FormBuildFirst' ) .value,
+        bl = getId( 'FormBuildLast' )  .value,
+        uf = getId( 'FormUpdateFirst' ).value,
+        ul = getId( 'FormUpdateLast' ) .value;
 
     bf === '' ? bf = '1900-1-1'   : null;
     bl === '' ? bl = '9999-12-31' : null;
@@ -63,17 +58,17 @@ const ListFilter = () => {
 
         if(
             (
-                d[ 'Title' ].indexOf( t ) != -1 ||
-                d[ 'Desc' ] .indexOf( t ) != -1 ||
-                d[ 'Kind' ] .indexOf( t ) != -1
+                d.Title.indexOf( t ) != -1 ||
+                d.Desc .indexOf( t ) != -1 ||
+                d.Kind .indexOf( t ) != -1
             ) &&
             (
-                DateTran( d[ 'DateBuild' ] ) >= bf &&
-                DateTran( d[ 'DateBuild' ] ) <= bl
+                DateTran( d.DateBuild ) >= bf &&
+                DateTran( d.DateBuild ) <= bl
             ) &&
             (
-                DateTran( d[ 'DateUpdate' ] ) >= uf &&
-                DateTran( d[ 'DateUpdate' ] ) <= ul
+                DateTran( d.DateUpdate ) >= uf &&
+                DateTran( d.DateUpdate ) <= ul
             )
             ) {
                 Search_Array.push( d )
@@ -89,7 +84,7 @@ const ListHtml = () => {
 
     if( l > Search_Total ) l = Search_Total;
 
-    Tbody.innerHTML = '';
+    getId( 'Tbody' ).innerHTML = '';
 
     while( i < l ) {
 
@@ -104,14 +99,8 @@ const ListHtml = () => {
             dateupdate = DateTran( a.DateUpdate ),
             link       = FormLink( id );
 
-        // 轉換類別ID
-        for( let i = 0 ; i < Kind_Total ; i++ ) {
-
-            kind = kind.replace( ( Kind_Array[ i ][ 'Id' ] ) , Kind_Array[ i ][ 'Kind' ] )
-        };
-
         // 輸出DOM
-        Tbody.insertAdjacentHTML( 'beforeend' , 
+        getId( 'Tbody' ).insertAdjacentHTML( 'beforeend' , 
             `<tr>
                 <td class="__center">
                     <a class="list-btn list-btn-watch" href="${ link }">

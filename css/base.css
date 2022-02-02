@@ -19,8 +19,8 @@
 
 .__imgresp {
     vertical-align: bottom;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
 }
 
 /* All ---------------------------------------- */
@@ -89,14 +89,17 @@ input[disabled]{
     background-color: var(--light);
     color: var(--iron);
     box-shadow: var(--shadow);
+    z-index: 4;
 }
 
+.header-head,
 .header-body{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
+
 .header-btn{
     display: flex;
     align-items: center;
@@ -109,8 +112,21 @@ input[disabled]{
     font-size: 18px;
 }
 
-.header-btn:hover{
-    background-color: #eee;
+.header-logo{
+    display: block;
+    width: auto;
+    height: 100%;
+}
+
+#BtnBurger{
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    margin-right: 12px;
+    color: var(--iron);
+    background-color: transparent;
+    border-radius: 50%;
 }
 
 #BtbSet{
@@ -119,6 +135,11 @@ input[disabled]{
 
 #BtbLogout{
     color: var(--red);
+}
+
+#BtnBurger:hover,
+.header-btn:hover{
+    background-color: rgb(230, 230, 230);
 }
 
 /* Main ----------------------------------------  */
@@ -216,7 +237,7 @@ input[disabled]{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: fixed;
     top: calc( var(--header-h) + var(--space-h) );
     left: var(--space-v);
@@ -224,6 +245,7 @@ input[disabled]{
     padding: var(--space-h);
     background-color: var(--light);
     box-shadow: var(--shadow);
+    z-index: 4;
 }
 
 .aside-li{
@@ -261,6 +283,7 @@ input[disabled]{
     justify-content: center;
     background-color: rgba(0, 0, 0, .3);
     opacity: 0;
+    z-index: 5;
 }
 
 #Load.--show{
@@ -289,3 +312,77 @@ input[disabled]{
         -o-transform: rotateZ(360deg);
     }
 }
+
+/* RWD */
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 1024px) {
+    .header-logo{
+        display: none;
+    }
+    #BtnBurger{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #Aside{
+        position: fixed;
+        top: var(--header-h);
+        left: -100%;
+        transition: 300ms;
+        z-index: 5;
+        height: 100%;
+        border-top: 1px solid #d3d3d3;
+    }
+    #Aside.--show{
+        left: 0%;
+    }
+    #Main{
+        padding-left: var(--space-v);
+    }
+    #Main::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        transition-duration: 300ms;
+        pointer-events: none;
+    }
+    #Main.--lock::after{
+        background-color: rgba(0, 0, 0, .3);
+        pointer-events: all;
+    }
+    :root {
+        --space-v: 16px;
+        --space-h: 16px;
+        --header-h: 60px;
+        --aside-v: 240px;
+    }
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 600px) {}
+
+@media screen and (max-width: 540px) {}
+
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-width: 414px) {
+    #HeaderText{
+        display: none;
+    }
+    :root {
+        --space-v: 8px;
+    }
+}
+
+@media screen and (max-width: 375px) {}
+
+@media screen and (max-width: 360px) {}
+
+@media screen and (max-width: 320px) {}

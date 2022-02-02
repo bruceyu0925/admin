@@ -1,17 +1,6 @@
 // const
 const FormLink = ( id ) => { return `/admin/skill/kind/upload.html?id=${ id }` };
 
-const FormBuildFirst  = getId( 'FormBuildFirst' ),
-      FormBuildLast   = getId( 'FormBuildLast' ),
-      FormUpdateFirst = getId( 'FormUpdateFirst' ),
-      FormUpdateLast  = getId( 'FormUpdateLast' ),
-      FormText        = getId( 'FormText' ),
-      BtnAdd          = getId( 'BtnAdd' ),
-      Tbody           = getId( 'Tbody' );
-
-var Data_Array = [],
-    Data_Total;
-
 // GET
 fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
     method: 'GET'
@@ -20,8 +9,10 @@ fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T0
     return res.json()
 
 }).then( ary => {
+
     List_Array = ary;
     List_Total = ary.length;
+    
     FormSearch.click();
 });
 
@@ -30,11 +21,11 @@ const ListFilter = () => {
 
     Search_Array = [];
 
-    var t  = FormText       .value,
-        bf = FormBuildFirst .value,
-        bl = FormBuildLast  .value,
-        uf = FormUpdateFirst.value,
-        ul = FormUpdateLast .value;
+    var t  = getId( 'FormText' )       .value,
+        bf = getId( 'FormBuildFirst' ) .value,
+        bl = getId( 'FormBuildLast' )  .value,
+        uf = getId( 'FormUpdateFirst' ).value,
+        ul = getId( 'FormUpdateLast' ) .value;
 
     bf === '' ? bf = '1900-1-1'   : null;
     bl === '' ? bl = '9999-12-31' : null;
@@ -52,15 +43,15 @@ const ListFilter = () => {
 
         if(
             (
-                d[ 'Kind' ] .indexOf( t ) != -1
+                d.Kind.indexOf( t ) != -1
             ) &&
             (
-                DateTran( d[ 'DateBuild' ] ) >= bf &&
-                DateTran( d[ 'DateBuild' ] ) <= bl
+                DateTran( d.DateBuild ) >= bf &&
+                DateTran( d.DateBuild ) <= bl
             ) &&
             (
-                DateTran( d[ 'DateUpdate' ] ) >= uf &&
-                DateTran( d[ 'DateUpdate' ] ) <= ul
+                DateTran( d.DateUpdate ) >= uf &&
+                DateTran( d.DateUpdate ) <= ul
             )
             ) {
                 Search_Array.push( d )
@@ -76,7 +67,7 @@ const ListHtml = () => {
 
     if( l > Search_Total ) l = Search_Total;
 
-    Tbody.innerHTML = '';
+    getId( 'Tbody' ).innerHTML = '';
 
     while( i < l ) {
 
@@ -89,7 +80,7 @@ const ListHtml = () => {
             link       = FormLink( id );
 
         // 輸出DOM
-        Tbody.insertAdjacentHTML( 'beforeend' , 
+        getId( 'Tbody' ).insertAdjacentHTML( 'beforeend' , 
             `<tr>
                 <td class="__center">
                     <a class="list-btn list-btn-watch" href="${ link }">
