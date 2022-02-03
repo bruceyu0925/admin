@@ -30,7 +30,7 @@ Promise.all([
 
     getId( 'FormSearch' ).click();
 });
-
+alert('please');
 // func 篩選資料
 const ListFilter = () => {
 
@@ -45,6 +45,11 @@ const ListFilter = () => {
     uf === '' ? uf = '1900-1-1'   : null;
     ul === '' ? ul = '9999-12-31' : null;
 
+    bf = new Date( bf + ' 0:00:00' );
+    bl = new Date( bl + ' 0:00:00' );
+    uf = new Date( uf + ' 0:00:00' );
+    ul = new Date( ul + ' 0:00:00' );
+
     Search_Array = List_Array.filter( li =>
         (
             li.Title.indexOf( t ) !== -1 ||
@@ -52,18 +57,14 @@ const ListFilter = () => {
             li.Kind .indexOf( t ) !== -1
         ) &&
         (
-            li.DateBuild >= bf &&
-            li.DateBuild <= bl
+            new Date( li.DateBuild ) >= bf &&
+            new Date( li.DateBuild ) <= bl
         ) &&
         (
-            li.DateUpdate >= uf &&
-            li.DateUpdate <= ul
+            new Date( li.DateUpdate ) >= uf &&
+            new Date( li.DateUpdate ) <= ul
         )
-    );
-
-    alert('4')
-    alert('List:'+List_Array.length)
-    alert('Search:'+Search_Array.length)
+    )
 };
 
 // func 產生清單
