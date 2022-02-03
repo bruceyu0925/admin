@@ -129,15 +129,15 @@ getId( 'FormSearch' ).onclick = () => {
         v = s.value;
     
     // 處理排序
-    Search_Array.sort( ( a , b ) => {
+    // Search_Array.sort( ( a , b ) => {
 
-        if( s.classList.contains( '--max' ) ) {
-            return a[ v ] < b[ v ] ? 1 : -1
+    //     if( s.classList.contains( '--max' ) ) {
+    //         return a[ v ] < b[ v ] ? 1 : -1
 
-        } else if( s.classList.contains( '--min' ) ) {
-            return a[ v ] > b[ v ] ? 1 : -1
-        }
-    });
+    //     } else if( s.classList.contains( '--min' ) ) {
+    //         return a[ v ] > b[ v ] ? 1 : -1
+    //     }
+    // });
     
     // 處理參數
     Search_Total = Search_Array.length;
