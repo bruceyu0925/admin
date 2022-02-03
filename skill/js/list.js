@@ -1,6 +1,6 @@
 // const
 const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
-alert('el.Kind')
+
 // GET
 Promise.all([
     GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
@@ -23,12 +23,12 @@ Promise.all([
     List_Array.forEach( el => {
 
         for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
-            alert(el.Kind);
+
             el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
         };
     });
 
-    FormSearch.click();
+    getId( 'FormSearch' ).click();
 });
 
 // func 篩選資料
