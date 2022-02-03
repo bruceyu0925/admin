@@ -30,15 +30,15 @@ Promise.all([
 
     getId( 'FormSearch' ).click();
 });
-alert('please3');
+alert('please99');
 // func 篩選資料
 const ListFilter = () => {
 
     var t  = getId( 'FormText' )       .value,
-        bf = getId( 'FormBuildFirst' ) .value,
-        bl = getId( 'FormBuildLast' )  .value,
-        uf = getId( 'FormUpdateFirst' ).value,
-        ul = getId( 'FormUpdateLast' ) .value;
+        bf = getId( 'FormBuildFirst' ) .value.split('-').join('/'),
+        bl = getId( 'FormBuildLast' )  .value.split('-').join('/'),
+        uf = getId( 'FormUpdateFirst' ).value.split('-').join('/'),
+        ul = getId( 'FormUpdateLast' ) .value.split('-').join('/');
 
     bf === '' ? bf = '1900/01/01' : null;
     bl === '' ? bl = '9999/12/31' : null;
