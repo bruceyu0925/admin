@@ -71,9 +71,11 @@ const ListFilter = () => {
                 DateTran( d.DateUpdate ) <= ul
             )
             ) {
-                Search_Array.push( d )
+                alert( d );
+                Search_Array.push( d );
         }
     }
+    alert( Search_Array );
 };
 
 // func 產生清單
