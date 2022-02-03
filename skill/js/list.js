@@ -16,18 +16,17 @@ Promise.all([
     })
 
 )).then( ary => {
-    alert(ary[ 0 ][0]['Title'])
 
     List_Array = ary[ 0 ];
     List_Total = ary[ 0 ].length;
 
-    List_Array.forEach( el => {
+    // List_Array.forEach( el => {
 
-        for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
+    //     for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
             
-            el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
-        };
-    });
+    //         el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
+    //     };
+    // });
 
     FormSearch.click();
 });
