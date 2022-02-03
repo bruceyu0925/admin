@@ -42,9 +42,9 @@ const DateTran = ( date ) => {
     // 共用dom
     getId( 'Header' ).innerHTML =
         `<div class="header-head">
-            <button id="BtnBurger">
+            <div id="BtnBurger">
                 <i class="fas fa-bars"></i>
-            </button>
+            </div>
             <a class="header-logo" href="#">
                 <img src="/admin/image/logo.svg" class="__imgresp" alt="Bruce Yu Design">
             </a>
@@ -133,5 +133,6 @@ const DateTran = ( date ) => {
 
 getId( 'BtnBurger' ).onclick = () => {
     getId( 'Aside' ).classList.toggle( '--show' );
-    getId( 'Main' ).classList.toggle( '--lock' )
+    getId( 'Main' ).classList.toggle( '--lock' );
+    getId( 'Html' ).classList.toggle( '--lock' );
 }
