@@ -30,7 +30,7 @@ Promise.all([
 
     getId( 'FormSearch' ).click();
 });
-alert('please2');
+alert('please3');
 // func 篩選資料
 const ListFilter = () => {
 
@@ -40,10 +40,10 @@ const ListFilter = () => {
         uf = getId( 'FormUpdateFirst' ).value,
         ul = getId( 'FormUpdateLast' ) .value;
 
-    bf === '' ? bf = '1900-1-1'   : null;
-    bl === '' ? bl = '9999-12-31' : null;
-    uf === '' ? uf = '1900-1-1'   : null;
-    ul === '' ? ul = '9999-12-31' : null;
+    bf === '' ? bf = '1900/01/01' : null;
+    bl === '' ? bl = '9999/12/31' : null;
+    uf === '' ? uf = '1900/01/01' : null;
+    ul === '' ? ul = '9999/12/31' : null;
 
     bf = new Date( bf + ' 00:00:00' );
     bl = new Date( bl + ' 00:00:00' );
