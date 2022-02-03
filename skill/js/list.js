@@ -55,24 +55,23 @@ const ListFilter = () => {
     for( let i = 0 ; i < List_Total ; i++ ) {
 
         var d = List_Array[ i ];
-
+        alert('test100');
         if(
             (
-                d.Title.indexOf( t ) != -1 ||
-                d.Desc .indexOf( t ) != -1 ||
-                d.Kind .indexOf( t ) != -1
+                d[ 'Title' ].indexOf( t ) != -1 ||
+                d[ 'Desc' ] .indexOf( t ) != -1 ||
+                d[ 'Kind' ] .indexOf( t ) != -1
             ) &&
             (
-                DateTran( d.DateBuild ) >= bf &&
-                DateTran( d.DateBuild ) <= bl
+                DateTran( d[ 'DateBuild' ] ) >= bf &&
+                DateTran( d[ 'DateBuild' ] ) <= bl
             ) &&
             (
-                DateTran( d.DateUpdate ) >= uf &&
-                DateTran( d.DateUpdate ) <= ul
+                DateTran( d[ 'DateUpdate' ] ) >= uf &&
+                DateTran( d[ 'DateUpdate' ] ) <= ul
             )
             ) {
-                alert( d );
-                Search_Array.push( d );
+                Search_Array.push( d )
         }
     }
     alert( Search_Array );
