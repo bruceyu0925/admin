@@ -30,7 +30,7 @@ Promise.all([
 
     getId( 'FormSearch' ).click();
 });
-alert('please99');
+
 // func 篩選資料
 const ListFilter = () => {
 
