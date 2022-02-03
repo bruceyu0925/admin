@@ -128,7 +128,7 @@ getId( 'FormSearch' ).onclick = () => {
 
     var s = queOne( '.td-sort-btn.--click' ),
         v = s.value;
-
+    alert('first');
     // 處理排序
     Search_Array.sort( ( a , b ) => {
 
@@ -139,12 +139,12 @@ getId( 'FormSearch' ).onclick = () => {
             return a[ v ] > b[ v ] ? 1 : -1
         }
     });
-
+    alert('second');
     // 處理參數
     Search_Total = Search_Array.length;
     Page_All     = Math.ceil( Search_Total / Page_Len );
     Page_Num     = 1;
-    
+    alert('third');
     setTimeout( () => {
 
         Loading( false );

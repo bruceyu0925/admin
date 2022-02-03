@@ -27,9 +27,8 @@ Promise.all([
             el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
         };
     });
-    alert( List_Array );
-    alert( List_Total );
-    getId( 'FormSearch' ).onclick();
+
+    getId( 'FormSearch' ).click();
 });
 
 // func 篩選資料

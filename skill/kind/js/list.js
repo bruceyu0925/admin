@@ -13,7 +13,7 @@ fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T0
     List_Array = ary;
     List_Total = ary.length;
     
-    FormSearch.click();
+    getId( 'FormSearch' ).click();
 });
 
 // func 篩選資料
