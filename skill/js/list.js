@@ -64,7 +64,9 @@ const ListFilter = () => {
             DateTran( li.DateUpdate ) >= uf &&
             DateTran( li.DateUpdate ) <= ul
         )
-    )
+    );
+    alert('List:'+List_Array.length)
+    alert('Search:'+Search_Array.length)
 };
 
 // func 產生清單
