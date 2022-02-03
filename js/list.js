@@ -1,8 +1,12 @@
-// Page --------------------------------------------------
-
-var Page_All,
+var List_Array = [],
+    List_Total,
+    Search_Array = [],
+    Search_Total,
+    Page_All,
     Page_Num,
     Page_Len = 10;
+
+// Page --------------------------------------------------
 
 // func 產生頁碼
 const PageHtml = () => {
@@ -114,11 +118,6 @@ getId( 'PageNext' ).onclick = () => PageClick( Page_Num + 1 );
 
 
 // List --------------------------------------------------
-
-var List_Array = [],
-    List_Total,
-    Search_Array = [],
-    Search_Total;
 
 // event 執行搜尋
 getId( 'FormSearch' ).onclick = () => {

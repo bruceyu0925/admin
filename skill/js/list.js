@@ -51,11 +51,12 @@ const ListFilter = () => {
     bl = DateTran( bl + ' 0:00:00' );
     uf = DateTran( uf + ' 0:00:00' );
     ul = DateTran( ul + ' 0:00:00' );
+    alert('心好累')
 
     for( let i = 0 ; i < List_Total ; i++ ) {
 
         var d = List_Array[ i ];
-        alert('test100');
+
         if(
             (
                 d[ 'Title' ].indexOf( t ) != -1 ||
