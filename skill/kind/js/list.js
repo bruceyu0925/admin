@@ -37,26 +37,19 @@ const ListFilter = () => {
     uf = DateTran( uf + ' 0:00:00' );
     ul = DateTran( ul + ' 0:00:00' );
 
-    for( let i = 0 ; i < List_Total ; i++ ) {
-
-        var d = List_Array[ i ];
-
-        if(
-            (
-                d.Kind.indexOf( t ) != -1
-            ) &&
-            (
-                DateTran( d.DateBuild ) >= bf &&
-                DateTran( d.DateBuild ) <= bl
-            ) &&
-            (
-                DateTran( d.DateUpdate ) >= uf &&
-                DateTran( d.DateUpdate ) <= ul
-            )
-            ) {
-                Search_Array.push( d )
-        }
-    }
+    Search_Array = List_Array.filter( li => {
+        (
+            li.Kind.indexOf( t ) != -1
+        ) &&
+        (
+            DateTran( li.DateBuild ) >= bf &&
+            DateTran( li.DateBuild ) <= bl
+        ) &&
+        (
+            DateTran( li.DateUpdate ) >= uf &&
+            DateTran( li.DateUpdate ) <= ul
+        )
+    })
 };
 
 // func 產生清單
