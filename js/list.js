@@ -128,19 +128,20 @@ getId( 'FormSearch' ).onclick = () => {
     var s = queOne( '.td-sort-btn.--click' ),
         v = s.value;
 
-    // 處理排序
-    Search_Array.sort( ( a , b ) => {
+    // // 處理排序
+    // Search_Array.sort( ( a , b ) => {
 
-        if( s.classList.contains( '--max' ) ) {
-            return a[ v ] < b[ v ] ? 1 : -1
+    //     if( s.classList.contains( '--max' ) ) {
+    //         return a[ v ] < b[ v ] ? 1 : -1
 
-        } else if( s.classList.contains( '--min' ) ) {
-            return a[ v ] > b[ v ] ? 1 : -1
-        }
-    });
+    //     } else if( s.classList.contains( '--min' ) ) {
+    //         return a[ v ] > b[ v ] ? 1 : -1
+    //     }
+    // });
     
     // 處理參數
     Search_Total = Search_Array.length;
+    alert( Search_Total );
     Page_All     = Math.ceil( Search_Total / Page_Len );
     Page_Num     = 1;
     
