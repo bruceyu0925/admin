@@ -45,28 +45,23 @@ const ListFilter = () => {
     uf === '' ? uf = '1900-1-1'   : null;
     ul === '' ? ul = '9999-12-31' : null;
 
-    bf = DateTran( bf + ' 0:00:00' );
-    bl = DateTran( bl + ' 0:00:00' );
-    uf = DateTran( uf + ' 0:00:00' );
-    ul = DateTran( ul + ' 0:00:00' );
-
     Search_Array = List_Array.filter( li =>
-        // (
+        (
             li.Title.indexOf( t ) !== -1 ||
             li.Desc .indexOf( t ) !== -1 ||
             li.Kind .indexOf( t ) !== -1
-        // ) &&
-        // (
-        //     DateTran( li.DateBuild ) >= bf &&
-        //     DateTran( li.DateBuild ) <= bl
-        // ) &&
-        // (
-        //     DateTran( li.DateUpdate ) >= uf &&
-        //     DateTran( li.DateUpdate ) <= ul
-        // )
+        ) &&
+        (
+            li.DateBuild >= bf &&
+            li.DateBuild <= bl
+        ) &&
+        (
+            li.DateUpdate >= uf &&
+            li.DateUpdate <= ul
+        )
     );
 
-    alert('3')
+    alert('4')
     alert('List:'+List_Array.length)
     alert('Search:'+Search_Array.length)
 };

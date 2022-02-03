@@ -30,22 +30,17 @@ const ListFilter = () => {
     uf === '' ? uf = '1900-1-1'   : null;
     ul === '' ? ul = '9999-12-31' : null;
 
-    bf = DateTran( bf + ' 0:00:00' );
-    bl = DateTran( bl + ' 0:00:00' );
-    uf = DateTran( uf + ' 0:00:00' );
-    ul = DateTran( ul + ' 0:00:00' );
-
     Search_Array = List_Array.filter( li =>
         (
             li.Kind.indexOf( t ) != -1
         ) &&
         (
-            DateTran( li.DateBuild ) >= bf &&
-            DateTran( li.DateBuild ) <= bl
+            li.DateBuild >= bf &&
+            li.DateBuild <= bl
         ) &&
         (
-            DateTran( li.DateUpdate ) >= uf &&
-            DateTran( li.DateUpdate ) <= ul
+            li.DateUpdate >= uf &&
+            li.DateUpdate <= ul
         )
     )
 };
