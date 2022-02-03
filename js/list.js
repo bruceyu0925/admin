@@ -143,7 +143,6 @@ getId( 'FormSearch' ).onclick = () => {
     Search_Total = Search_Array.length;
     Page_All     = Math.ceil( Search_Total / Page_Len );
     Page_Num     = 1;
-    alert(Search_Total);
     
     setTimeout( () => {
 
