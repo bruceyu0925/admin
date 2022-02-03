@@ -16,6 +16,7 @@ Promise.all([
     })
 
 )).then( ary => {
+    alert(ary[ 0 ][0]['Title'])
 
     List_Array = ary[ 0 ];
     List_Total = ary[ 0 ].length;
@@ -27,7 +28,6 @@ Promise.all([
             el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
         };
     });
-    alert(List_Array[0]['Title'])
 
     FormSearch.click();
 });
