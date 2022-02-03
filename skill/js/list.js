@@ -34,8 +34,6 @@ Promise.all([
 // func 篩選資料
 const ListFilter = () => {
 
-    Search_Array = [];
-
     var t  = getId( 'FormText' )       .value,
         bf = getId( 'FormBuildFirst' ) .value,
         bl = getId( 'FormBuildLast' )  .value,

@@ -19,8 +19,6 @@ fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T0
 // func 篩選資料
 const ListFilter = () => {
 
-    Search_Array = [];
-
     var t  = getId( 'FormText' )       .value,
         bf = getId( 'FormBuildFirst' ) .value,
         bl = getId( 'FormBuildLast' )  .value,
