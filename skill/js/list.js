@@ -26,7 +26,8 @@ Promise.all([
             
             el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
         };
-    })
+    });
+    alert(List_Array[0]['Title'])
 
     FormSearch.click();
 });
