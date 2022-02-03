@@ -50,23 +50,23 @@ const ListFilter = () => {
     uf = DateTran( uf + ' 0:00:00' );
     ul = DateTran( ul + ' 0:00:00' );
 
-    List_Array = List_Array.filter( li =>
-        (
+    Search_Array = List_Array.filter( li =>
+        // (
             li.Title.indexOf( t ) !== -1 ||
             li.Desc .indexOf( t ) !== -1 ||
             li.Kind .indexOf( t ) !== -1
-        ) &&
-        (
-            DateTran( li.DateBuild ) >= bf &&
-            DateTran( li.DateBuild ) <= bl
-        ) &&
-        (
-            DateTran( li.DateUpdate ) >= uf &&
-            DateTran( li.DateUpdate ) <= ul
-        )
+        // ) &&
+        // (
+        //     DateTran( li.DateBuild ) >= bf &&
+        //     DateTran( li.DateBuild ) <= bl
+        // ) &&
+        // (
+        //     DateTran( li.DateUpdate ) >= uf &&
+        //     DateTran( li.DateUpdate ) <= ul
+        // )
     );
-    Search_Array = List_Array;
-    alert('2')
+
+    alert('3')
     alert('List:'+List_Array.length)
     alert('Search:'+Search_Array.length)
 };
