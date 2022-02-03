@@ -52,7 +52,7 @@ const ListFilter = () => {
     uf = DateTran( uf + ' 0:00:00' );
     ul = DateTran( ul + ' 0:00:00' );
 
-    Search_Array = List_Array.filter( li => {
+    Search_Array = List_Array.filter( li =>
         (
             li.Title.indexOf( t ) !== -1 ||
             li.Desc .indexOf( t ) !== -1 ||
@@ -66,7 +66,7 @@ const ListFilter = () => {
             DateTran( li.DateUpdate ) >= uf &&
             DateTran( li.DateUpdate ) <= ul
         )
-    })
+    )
 };
 
 // func 產生清單
