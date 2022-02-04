@@ -39,6 +39,11 @@ fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAE
 
 // POST
 getId( 'FormBuild' ).onclick = () => {
+    getId( 'Html' )    .classList.add( '--lock' );
+    getId( 'MsgBuild' ).classList.add( '--show' );
+};
+
+getId( 'BtnBuild' ).onclick = () => {
     Loading( true );
 
     var k = [];
@@ -66,7 +71,12 @@ getId( 'FormBuild' ).onclick = () => {
 
 // 取消
 getId( 'FormCancel' ).onclick = () => {
-    confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgCancel' ).classList.add( '--show' );
+};
+
+getId( 'BtnCancel' ).onclick = () => {
+    window.location.href = BackUrl
 };
 
 // 分數防呆
@@ -82,16 +92,3 @@ getId( 'FormScore' ).onkeyup = function() {
     };
     this.value = Math.round( v );
 };
-
-// event 若有修改，離開頁面前詢問
-// queAll( '.form-input' ).forEach( el => {
-
-//     el.onchange = () => {
-
-//         window.onbeforeunload = ( e ) => {
-
-//             var e = window.event || e;
-//             e.returnValue = true;
-//         }
-//     }
-// });

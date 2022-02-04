@@ -66,25 +66,32 @@ Promise.all([
 
 // DELETE
 getId( 'FormDelete' ).onclick = () => {
-
-    if ( confirm( '確定刪除此項設定嗎？' ) ) {
-        Loading( true );
-
-        fetch( GAS( 'AKfycbzKKG4MKZBAHybZkTwmk-A1PgugFVzOsB1S4anK-kESvhfyN7ElYW4N08c0obVS5NX9' ) + ReqId , {
-            method:  'POST'
-        
-        }).then( ( res ) => {
-            return res.text()
-        
-        }).then( ( data ) => {
-            data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
-            window.location.href = BackUrl;
-        })
-    }
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgDelete' ).classList.add( '--show' );
 };
+
+getId( 'BtnDelete' ).onclick = () => {
+    Loading( true );
+
+    fetch( GAS( 'AKfycbzKKG4MKZBAHybZkTwmk-A1PgugFVzOsB1S4anK-kESvhfyN7ElYW4N08c0obVS5NX9' ) + ReqId , {
+        method:  'POST'
+    
+    }).then( ( res ) => {
+        return res.text()
+    
+    }).then( ( data ) => {
+        data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
+        window.location.href = BackUrl;
+    })
+}
 
 // PUT
 getId( 'FormApply' ).onclick = () => {
+    getId( 'Html' )    .classList.add( '--lock' );
+    getId( 'MsgApply' ).classList.add( '--show' );
+};
+
+getId( 'BtnApply' ).onclick = () => {
     Loading( true );
 
     var k = [];
@@ -109,12 +116,17 @@ getId( 'FormApply' ).onclick = () => {
         data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
         window.location.href = BackUrl;
     })
-};
+}
 
 // 取消
 getId( 'FormCancel' ).onclick = () => {
-    confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgCancel' ).classList.add( '--show' );
 };
+
+getId( 'BtnCancel' ).onclick = () => {
+    window.location.href = BackUrl
+}
 
 // 分數防呆
 getId( 'FormScore' ).onkeyup = function() {

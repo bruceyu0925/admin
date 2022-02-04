@@ -35,25 +35,32 @@ fetch( GAS( 'AKfycbwd7Ic8yeDuntx7d3zVPZmd_-ey_K3ECXezil27nfVMEm72Gg_Gsra_Rai_Kec
 
 // DELETE
 getId( 'FormDelete' ).onclick = () => {
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgDelete' ).classList.add( '--show' );
+};
 
-    if ( confirm( '確定刪除此項設定嗎？' ) ) {
-        Loading( true );
+getId( 'BtnDelete' ).onclick = () => {
+    Loading( true );
 
-        fetch( GAS( 'AKfycbx2VPd35csBHOQosY4YvU8RligUFpJ4cVrgqhcziiRShL_6MufDVVCS81UJNYNpmqwhBg' ) + ReqId , {
-            method:  'POST'
-        
-        }).then( ( res ) => {
-            return res.text()
-        
-        }).then( ( data ) => {
-            data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
-            window.location.href = BackUrl;
-        })
-    }
+    fetch( GAS( 'AKfycbx2VPd35csBHOQosY4YvU8RligUFpJ4cVrgqhcziiRShL_6MufDVVCS81UJNYNpmqwhBg' ) + ReqId , {
+        method:  'POST'
+    
+    }).then( ( res ) => {
+        return res.text()
+    
+    }).then( ( data ) => {
+        data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
+        window.location.href = BackUrl;
+    })
 };
 
 // PUT
 getId( 'FormApply' ).onclick = () => {
+    getId( 'Html' )    .classList.add( '--lock' );
+    getId( 'MsgApply' ).classList.add( '--show' );
+};
+
+getId( 'BtnApply' ).onclick = () => {
     Loading( true );
     
     fetch( GAS( 'AKfycbyKZVAnZ314lj2TlxwtZzERF3MKyWcCLi9xoaRZNFKQ0WY8Tqd9-DHO0_PJ14_yIlzUwg' ) + ReqId , {
@@ -74,5 +81,10 @@ getId( 'FormApply' ).onclick = () => {
 
 // 取消
 getId( 'FormCancel' ).onclick = () => {
-    confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgCancel' ).classList.add( '--show' );
+};
+
+getId( 'BtnCancel' ).onclick = () => {
+    window.location.href = BackUrl
 };

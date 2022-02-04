@@ -5,6 +5,11 @@ Loading( false );
 
 // POST
 getId( 'FormBuild' ).onclick = () => {
+    getId( 'Html' )    .classList.add( '--lock' );
+    getId( 'MsgBuild' ).classList.add( '--show' );
+};
+
+getId( 'BtnBuild' ).onclick = () => {
     Loading( true );
     
     fetch( GAS( 'AKfycbyxdBAjTylg6eFV9TxFOhmw_FwTwgmoSaJ8G46mKLCyK8HDoqnEpPPStsshpbKKrU_F4Q' ) , {
@@ -24,5 +29,10 @@ getId( 'FormBuild' ).onclick = () => {
 
 // 取消
 getId( 'FormCancel' ).onclick = () => {
-    confirm( '確認離開？將不保存此次設定。' ) ? window.location.href = BackUrl : null;
+    getId( 'Html' )     .classList.add( '--lock' );
+    getId( 'MsgCancel' ).classList.add( '--show' );
+};
+
+getId( 'BtnCancel' ).onclick = () => {
+    window.location.href = BackUrl
 };

@@ -133,6 +133,6 @@ const DateTran = ( date ) => {
 
 getId( 'BtnBurger' ).onclick = () => {
     getId( 'Aside' ).classList.toggle( '--show' );
-    getId( 'Main' ).classList.toggle( '--lock' );
-    getId( 'Html' ).classList.toggle( '--lock' );
+    getId( 'Main' ) .classList.toggle( '--lock' );
+    getId( 'Html' ) .classList.toggle( '--lock' );
 }

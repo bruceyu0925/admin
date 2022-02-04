@@ -76,6 +76,50 @@
             </div>
 
         </div>
+
+    <!-- Msg box -->
+    <div id="MsgDelete" class="msg">
+        <div class="msg-box">
+            <div class="msg-icon" style="border-color: var(--red);">
+                <i class="far fa-trash-alt" style="color: var(--red);"></i>
+            </div>
+            <p class="msg-desc">
+                確定要刪除資料嗎？
+            </p>
+            <div class="msg-option">
+                <button class="msg-btn msg-cancel">取消</button>
+                <button id="BtnDelete" class="msg-btn msg-apply">確定</button>
+            </div>
+        </div>
+    </div>
+    <div id="MsgCancel" class="msg">
+        <div class="msg-box">
+            <div class="msg-icon" style="border-color: var(--yellow);">
+                <i class="fas fa-exclamation" style="color: var(--yellow);"></i>
+            </div>
+            <p class="msg-desc">
+                確定要離開嗎？<br>將不儲存此次設定
+            </p>
+            <div class="msg-option">
+                <button class="msg-btn msg-cancel">取消</button>
+                <button id="BtnCancel" class="msg-btn msg-apply">確定</button>
+            </div>
+        </div>
+    </div>
+    <div id="MsgApply" class="msg">
+        <div class="msg-box">
+            <div class="msg-icon" style="border-color: var(--green);">
+                <i class="fas fa-check" style="color: var(--green);"></i>
+            </div>
+            <p class="msg-desc">
+                將儲存此次設定！
+            </p>
+            <div class="msg-option">
+                <button class="msg-btn msg-cancel">取消</button>
+                <button id="BtnApply" class="msg-btn msg-apply">確定</button>
+            </div>
+        </div>
+    </div>
         
     </main>
     <div id="Load" class="--show">
@@ -86,6 +130,7 @@
 <script src="/admin/js/base.js"></script>
 
 <!-- JS -->
+<script src="/admin/js/info.js"></script>
 <script src="/admin/skill/kind/js/upload.js"></script>
 
 </html>

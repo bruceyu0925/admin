@@ -287,9 +287,9 @@ input[disabled]{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .5);
     opacity: 0;
-    z-index: 5;
+    z-index: 6;
 }
 
 #Load.--show{
@@ -359,7 +359,7 @@ input[disabled]{
         pointer-events: none;
     }
     #Main.--lock::after{
-        background-color: rgba(0, 0, 0, .3);
+        background-color: rgba(0, 0, 0, .5);
         pointer-events: all;
     }
     :root {
