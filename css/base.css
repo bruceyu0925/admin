@@ -55,6 +55,12 @@ input[disabled]:hover{
     cursor: not-allowed;
 }
 
+/* input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+} */
+
 input[disabled]{
     color: #888;
 }
