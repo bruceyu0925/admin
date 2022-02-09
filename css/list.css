@@ -52,6 +52,11 @@
     color: var(--blue);
     background-color: var(--light);
     box-shadow: var(--shadow);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 #BtnAdd > i {
@@ -103,7 +108,7 @@ thead > tr > td{
 
 tbody > tr > td{
     padding: 32px 8px;
-    color: var(--dark);
+    color: var(--iron);
     background-color: var(--light);
 }
 
@@ -114,7 +119,7 @@ tbody > tr > td{
 .td-sort-btn > i {
     display: none;
     font-size: 18px;
-    color: #777;
+    color: #8b8b8b;
 }
 
 .td-sort-btn.--click > i{

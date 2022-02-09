@@ -56,27 +56,32 @@ getId( 'BtnDelete' ).onclick = () => {
 
 // PUT
 getId( 'FormApply' ).onclick = () => {
-    getId( 'Html' )    .classList.add( '--lock' );
-    getId( 'MsgApply' ).classList.add( '--show' );
+    if( CheckInput() === true ){
+        getId( 'Html' )    .classList.add( '--lock' );
+        getId( 'MsgApply' ).classList.add( '--show' );
+    }
 };
 
 getId( 'BtnApply' ).onclick = () => {
-    Loading( true );
-    
-    fetch( GAS( 'AKfycbyKZVAnZ314lj2TlxwtZzERF3MKyWcCLi9xoaRZNFKQ0WY8Tqd9-DHO0_PJ14_yIlzUwg' ) + ReqId , {
-        method:  'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
-        body:    JSON.stringify({
-                    kind: getId( 'FormTitle' ).value
-                })
-    
-    }).then( ( res ) => {
-        return res.text()
-    
-    }).then( ( data ) => {
-        data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
-        window.location.href = BackUrl;
-    })
+
+    if( CheckInput() === true ){
+        Loading( true );
+        
+        fetch( GAS( 'AKfycbyKZVAnZ314lj2TlxwtZzERF3MKyWcCLi9xoaRZNFKQ0WY8Tqd9-DHO0_PJ14_yIlzUwg' ) + ReqId , {
+            method:  'POST',
+            headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+            body:    JSON.stringify({
+                        kind: getId( 'FormTitle' ).value
+                    })
+        
+        }).then( ( res ) => {
+            return res.text()
+        
+        }).then( ( data ) => {
+            data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
+            window.location.href = BackUrl;
+        })
+    }
 };
 
 // 取消

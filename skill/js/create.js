@@ -39,34 +39,39 @@ fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAE
 
 // POST
 getId( 'FormBuild' ).onclick = () => {
-    getId( 'Html' )    .classList.add( '--lock' );
-    getId( 'MsgBuild' ).classList.add( '--show' );
+    if( CheckInput() === true ) {
+        getId( 'Html' )    .classList.add( '--lock' );
+        getId( 'MsgBuild' ).classList.add( '--show' );
+    }
 };
 
 getId( 'BtnBuild' ).onclick = () => {
-    Loading( true );
 
-    var k = [];
-    queAll( '.form-checkbox' ).forEach( el => {
-        el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
-    });
-    
-    fetch( GAS( 'AKfycbxyPCvHou1FCg9GWLXDyEt9wZCFiLpJCr0mLVvdmUnT2Pm9KNsQW3hukAxjcaQcMPNS' ) , {
-        method:  'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
-        body:    JSON.stringify({
-                    title : getId( 'FormTitle' ).value,
-                    desc  : getId( 'FormDesc' ) .value,
-                    score : getId( 'FormScore' ).value,
-                    kind  : k.join( ',' )
-                })
-    
-    }).then( ( res ) => {
-        return res.text()
-    
-    }).then( ( data ) => {
-        window.location.href = BackUrl;
-    })
+    if( CheckInput() === true ){
+        Loading( true );
+
+        var k = [];
+        queAll( '.form-checkbox' ).forEach( el => {
+            el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
+        });
+        
+        fetch( GAS( 'AKfycbxyPCvHou1FCg9GWLXDyEt9wZCFiLpJCr0mLVvdmUnT2Pm9KNsQW3hukAxjcaQcMPNS' ) , {
+            method:  'POST',
+            headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+            body:    JSON.stringify({
+                        title : getId( 'FormTitle' ).value,
+                        desc  : getId( 'FormDesc' ) .value,
+                        score : getId( 'FormScore' ).value,
+                        kind  : k.join( ',' )
+                    })
+        
+        }).then( ( res ) => {
+            return res.text()
+        
+        }).then( ( data ) => {
+            window.location.href = BackUrl;
+        })
+    }
 };
 
 // 取消

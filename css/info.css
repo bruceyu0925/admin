@@ -50,6 +50,7 @@
 }
 
 input[type="checkbox"]{
+    border: 2px solid var(--iron);
     accent-color: var(--iron);
     width: 16px;
     height: 16px;
@@ -89,19 +90,23 @@ input[type="checkbox"]{
 /* Msg */
 
 .msg{
+    z-index: 5;
+    opacity: 0;
+    transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,.5);
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(1.3);
     transition-duration: 200ms;
 }
 
@@ -109,6 +114,10 @@ input[type="checkbox"]{
     opacity: 1;
     pointer-events: all;
     transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
 }
 
 .msg-box{
@@ -119,7 +128,12 @@ input[type="checkbox"]{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 40px 20px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
 }
 
 .msg-icon{
@@ -130,7 +144,7 @@ input[type="checkbox"]{
     justify-content: center;
     font-size: 28px;
     border-radius: 50%;
-    border-width: 2px;
+    border-width: 3px;
     border-style: solid;
 }
 

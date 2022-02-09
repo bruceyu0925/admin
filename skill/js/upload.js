@@ -31,7 +31,7 @@ const InputData = () => {
         // dom
         getId( 'FormKind' ).insertAdjacentHTML( 'beforeend' ,
             `<label class="form-kind-li">
-                <input type="checkbox" class="form-checkbox" name="getId( 'FormKind' )" value="${ v }"${ j }
+                <input type="checkbox" class="form-checkbox" value="${ v }"${ j }
                     onclick="this.toggleAttribute( 'checked' )">
                 <span>${ t }</span>
             </label>`
@@ -87,35 +87,40 @@ getId( 'BtnDelete' ).onclick = () => {
 
 // PUT
 getId( 'FormApply' ).onclick = () => {
-    getId( 'Html' )    .classList.add( '--lock' );
-    getId( 'MsgApply' ).classList.add( '--show' );
+    if( CheckInput() === true ) {
+        getId( 'Html' )    .classList.add( '--lock' );
+        getId( 'MsgApply' ).classList.add( '--show' );
+    }
 };
 
 getId( 'BtnApply' ).onclick = () => {
-    Loading( true );
 
-    var k = [];
-    queAll( '.form-checkbox' ).forEach( el => {
-        el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
-    });
-    
-    fetch( GAS( 'AKfycbyJgWX4R7H4y7k16qCSp1UgX1_e9zxq-T44DRi8Oqu5xCfumOsnPC6C3rISX-MkzOjrxw' ) + ReqId , {
-        method:  'POST',
-        headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
-        body:    JSON.stringify({
-                    title : getId( 'FormTitle' ).value,
-                    desc  : getId( 'FormDesc' ) .value,
-                    score : getId( 'FormScore' ).value,
-                    kind  : k.join( ',' )
-                })
-    
-    }).then( ( res ) => {
-        return res.text()
-    
-    }).then( ( data ) => {
-        data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
-        window.location.href = BackUrl;
-    })
+    if( CheckInput() === true ) {
+        Loading( true );
+
+        var k = [];
+        queAll( '.form-checkbox' ).forEach( el => {
+            el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
+        });
+        
+        fetch( GAS( 'AKfycbyJgWX4R7H4y7k16qCSp1UgX1_e9zxq-T44DRi8Oqu5xCfumOsnPC6C3rISX-MkzOjrxw' ) + ReqId , {
+            method:  'POST',
+            headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
+            body:    JSON.stringify({
+                        title : getId( 'FormTitle' ).value,
+                        desc  : getId( 'FormDesc' ) .value,
+                        score : getId( 'FormScore' ).value,
+                        kind  : k.join( ',' )
+                    })
+        
+        }).then( ( res ) => {
+            return res.text()
+        
+        }).then( ( data ) => {
+            data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
+            window.location.href = BackUrl;
+        })
+    }
 }
 
 // 取消
