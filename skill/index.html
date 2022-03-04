@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="0">
     <link rel="shortcut icon" href="/admin/image/favico.svg" type="image/x-icon">
     <title id="HeadTitle"></title>
 
@@ -30,6 +33,10 @@
 
                 <div class="form-group">
                     <a class="form-btn" id="FormKind" href="/admin/skill/kind/index.html">類別管理</a>
+                </div>
+
+                <div class="form-group">
+                    <a class="form-btn" id="FormAdd" href="/admin/skill/create.html">新增資料</a>
                 </div>
 
             </div>
@@ -74,6 +81,14 @@
             <div class="form-row --right">
 
                 <div class="form-group">
+                    <div id="SearchTotal"></div>
+                </div>
+
+            </div>
+
+            <div class="form-row --right">
+
+                <div class="form-group">
                     <button class="form-btn" id="FormReset">
                         <i class="fas fa-undo-alt"></i>
                         重設
@@ -90,17 +105,11 @@
             </div>
 
         </div>
-        <div id="SearchTotal"></div>
-        <a id="BtnAdd" href="/admin/skill/create.html">
-            <i class="fas fa-plus-circle"></i>
-            新增資料
-        </a>
+
         <div id="TableBox">
             <table>
                 <thead>
                     <tr>
-                        <td>
-                        </td>
                         <td>
                             ID
                             <button class="td-sort-btn --max --click" value="Id">

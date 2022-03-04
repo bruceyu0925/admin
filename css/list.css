@@ -10,62 +10,37 @@
 
 #FormKind{
     color: var(--light);
-    background-color: var(--blue);
-    border-color: var(--blue);
+    background-color: var(--shark);
+    border-color: var(--shark);
+}
+
+#FormAdd{
+    color: var(--light);
+    background-color: var(--shark);
 }
 
 #FormReset{
-    color: var(--red);
+    color: var(--shark);
     background-color: transparent;
-    border-color: var(--red);
+    border-color: var(--shark);
 }
 
 #FormReset:hover{
     color: var(--light);
-    background-color: var(--red);
+    background-color: var(--shark);
 }
 
 #FormSearch{
     color: var(--light);
-    background-color: var(--blue);
-    border-color: var(--blue);
+    background-color: var(--shark);
+    border-color: var(--shark);
 }
 
 /* SearchTotal ---------------------------------------- */
 #SearchTotal{
-    color: #777;
+    color: var(--shark);
     font-weight: bold;
-    width: 100%;
-    margin-top: 16px;
-    text-align: center;
-}
-
-/* BtnAdd ---------------------------------------- */
-#BtnAdd{
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-    font-size: 16px;
-    color: var(--blue);
-    background-color: var(--light);
-    box-shadow: var(--shadow);
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-}
-
-#BtnAdd > i {
-    margin-right: 4px;
-}
-
-#BtnAdd:hover{
-    color: var(--light);
-    background-color: var(--blue);
+    opacity: .6;
 }
 
 /* Table ----------------------------------------  */
@@ -97,18 +72,20 @@ td{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
 }
 
 thead > tr > td{
     padding: 12px 8px;
     font-weight: bold;
-    color: var(--blue);
+    color: var(--shark);
     background-color: var(--light);
 }
 
 tbody > tr > td{
     padding: 32px 8px;
-    color: var(--iron);
+    color: var(--shark);
     background-color: var(--light);
 }
 
@@ -119,11 +96,12 @@ tbody > tr > td{
 .td-sort-btn > i {
     display: none;
     font-size: 18px;
-    color: #8b8b8b;
+    color: var(--shark);
+    opacity: .4;
 }
 
 .td-sort-btn.--click > i{
-    color: var(--blue);
+    opacity: 1;
 }
 
 .td-sort-btn.--max > i:last-child {
@@ -135,8 +113,39 @@ tbody > tr > td{
 }
 
 .list-btn{
-    font-size: 18px;
-    color: var(--blue);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    background-color: var(--shark);
+    width: 60px;
+    height: 28px;
+    margin: auto;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    opacity: .6;
+}
+
+.list-btn:hover{
+    opacity: 1;
+}
+
+.list-img{
+    width: 72px;
+    height: 72px;
+    margin: -12px auto;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
 }
 
 /* Page ---------------------------------------- */
@@ -160,11 +169,11 @@ tbody > tr > td{
 .page-dot{
     height: 32px;
     width: 32px;
-    color: var(--blue);
+    color: var(--shark);
 }
 
 .page-btn{
-    border: 1px solid var(--blue);
+    border: 1px solid var(--shark);
     background-color: transparent;
 }
 
@@ -187,7 +196,7 @@ tbody > tr > td{
 
 .page-btn:not([disabled]):hover,
 .page-li.--click{
-    background-color: var(--blue);
+    background-color: var(--shark);
     color: var(--light);
 }
 

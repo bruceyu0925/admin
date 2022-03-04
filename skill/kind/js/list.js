@@ -74,12 +74,9 @@ const ListHtml = () => {
         getId( 'Tbody' ).insertAdjacentHTML( 'beforeend' , 
             `<tr>
                 <td class="__center">
-                    <a class="list-btn list-btn-watch" href="${ link }">
-                        <i class="fas fa-edit"></i>
+                    <a class="list-btn" href="${ link }">
+                        ${ id }
                     </a>
-                </td>
-                <td class="__center">
-                    ${ id }
                 </td>
                 <td class="__center">
                     ${ kind }

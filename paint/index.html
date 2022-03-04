@@ -17,7 +17,7 @@
 
     <!-- Css -->
     <link rel="stylesheet" href="/admin/css/list.css">
-    <link rel="stylesheet" href="/admin/skill/kind/css/list.css">
+    <link rel="stylesheet" href="/admin/paint/css/list.css">
 </head>
 
 <body>
@@ -32,11 +32,7 @@
             <div class="form-row --left">
 
                 <div class="form-group">
-                    <a class="form-btn" id="FormKind" href="/admin/skill/index.html">返回列表</a>
-                </div>
-
-                <div class="form-group">
-                    <a class="form-btn" id="FormAdd" href="/admin/skill/kind/create.html">新增資料</a>
+                    <a class="form-btn" id="FormAdd" href="/admin/paint/create.html">新增資料</a>
                 </div>
 
             </div>
@@ -78,6 +74,7 @@
 
             </div>
 
+
             <div class="form-row --right">
 
                 <div class="form-group">
@@ -105,7 +102,7 @@
             </div>
 
         </div>
-
+        
         <div id="TableBox">
             <table>
                 <thead>
@@ -118,7 +115,17 @@
                             </button>
                         </td>
                         <td>
-                            類別
+                            名稱
+                        </td>
+                        <td>
+                            縮圖
+                        </td>
+                        <td>
+                            觀看數
+                            <button class="td-sort-btn --max" value="Watch">
+                                <i class="fas fa-caret-up"></i>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
                         </td>
                         <td>
                             建立日期
@@ -153,6 +160,7 @@
             </button>
         </div>
     </main>
+    
     <div id="Load" class="--show">
         <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
     </div>
@@ -162,6 +170,6 @@
 
 <!-- JS -->
 <script src="/admin/js/list.js"></script>
-<script src="/admin/skill/kind/js/list.js"></script>
+<script src="/admin/paint/js/list.js"></script>
 
 </html>

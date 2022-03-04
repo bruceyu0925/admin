@@ -31,7 +31,7 @@
 
 .form-text{
     margin: 16px 0;
-    color: var(--iron);
+    color: var(--shark);
 }
 
 #FormDesc{
@@ -46,16 +46,31 @@
     align-items: center;
     justify-content: flex-start;
     margin-top: 8px;
-    color: var(--iron);
+    color: var(--shark);
 }
 
 input[type="checkbox"]{
-    border: 2px solid var(--iron);
-    accent-color: var(--iron);
-    width: 16px;
-    height: 16px;
+    border: 2px solid var(--shark);
+    width: 18px;
+    height: 18px;
     margin-right: 8px;
     cursor: pointer;
+}
+
+input[type="checkbox"][checked]{
+    background-image:  url("/admin/image/checked.png") , linear-gradient( var(--shark) , var(--shark) );
+    background-size: contain;
+}
+
+input[type="color"] {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    padding: 0px;
 }
 
 #FormDelete{
@@ -152,7 +167,7 @@ input[type="checkbox"]{
     text-align: center;
     font-size: 24px;
     line-height: 1.5;
-    color: var(--iron);
+    color: var(--shark);
     margin: 28px 0;
 }
 
@@ -170,7 +185,7 @@ input[type="checkbox"]{
     width: 72px;
     height: 36px;
     font-size: 16px;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--shark);
 }
 
 .msg-btn+.msg-btn{
@@ -179,12 +194,12 @@ input[type="checkbox"]{
 
 .msg-cancel{
     background-color: transparent;
-    color: var(--blue);
+    color: var(--shark);
 }
 
 .msg-cancel:hover,
 .msg-apply{
-    background-color: var(--blue);
+    background-color: var(--shark);
     color: var(--light);
 }
 

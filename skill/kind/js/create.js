@@ -1,7 +1,7 @@
 // const
 const BackUrl = '/admin/skill/kind/index.html';
 
-Loading( false );
+window.onload = () => Loading( false );
 
 // POST
 getId( 'FormBuild' ).onclick = () => {
@@ -30,14 +30,4 @@ getId( 'BtnBuild' ).onclick = () => {
             window.location.href = BackUrl;
         })
     }
-};
-
-// 取消
-getId( 'FormCancel' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgCancel' ).classList.add( '--show' );
-};
-
-getId( 'BtnCancel' ).onclick = () => {
-    window.location.href = BackUrl
 };

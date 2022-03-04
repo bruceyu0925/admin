@@ -74,16 +74,6 @@ getId( 'BtnBuild' ).onclick = () => {
     }
 };
 
-// 取消
-getId( 'FormCancel' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgCancel' ).classList.add( '--show' );
-};
-
-getId( 'BtnCancel' ).onclick = () => {
-    window.location.href = BackUrl
-};
-
 // 分數防呆
 getId( 'FormScore' ).onkeyup = function() {
 

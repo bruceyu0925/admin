@@ -112,16 +112,16 @@ const DateTran = ( date ) => {
             break;
     }
 
-    href.match( 'kind' ) ? path += ' ／ 類別' : null;
+    href.match( 'kind' ) ? path += ' ／ 類別管理' : null;
 
     switch( true ) {
 
         case href.match( 'create' ) !== null:
-            path += ' ／ 新增';
+            path += ' ／ 新增資料';
             break;
 
         case href.match( 'upload' ) !== null:
-            path += ' ／ 修改';
+            path += ' ／ 修改資料';
             break;
     }
 
