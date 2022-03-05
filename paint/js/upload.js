@@ -61,15 +61,10 @@ fetch( GAS( 'AKfycbwgcR2rqPQgoIUFjayVxXjtepWvolJsWb54cDlnucMkJKa_5dByJyKZDvLdIqU
 });
 
 // DELETE
-getId( 'FormDelete' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgDelete' ).classList.add( '--show' );
-};
-
 getId( 'BtnDelete' ).onclick = () => {
     Loading( true );
 
-    fetch( GAS( '' ) + ReqId , {
+    fetch( GAS( 'AKfycbw0seVQyh97PMFuMz-sVWGe4DZCdDTE4XsyCwIZDKXIRQ_GnqvQlkeWVTDPzeLrOxuG' ) + ReqId , {
         method:  'POST'
     
     }).then( ( res ) => {
@@ -82,27 +77,20 @@ getId( 'BtnDelete' ).onclick = () => {
 }
 
 // PUT
-getId( 'FormApply' ).onclick = () => {
-    if( CheckInput() === true ) {
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgApply' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnApply' ).onclick = () => {
 
     if( CheckInput() === true ) {
         Loading( true );
 
-        var s = new XMLSerializer().serializeToString( getId( 'FormSvg' ) ),
-            b = 'data:image/svg+xml;base64,' + btoa( s );
+        var svg    = new XMLSerializer().serializeToString( getId( 'FormImg' ) ),
+            base64 = 'data:image/svg+xml;base64,' + btoa( svg );
 
-        fetch( GAS( '' ) + ReqId , {
+        fetch( GAS( 'AKfycbyyPj90YY5AMQyv4MijtlCk-0uaJ6hkUhimfHVMbrD8aeZyNKYqT6nSrWs8Lql-Zrho' ) + ReqId , {
             method:  'POST',
             headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
             body:   JSON.stringify({
                         name : getId( 'FormName' ).value,
-                        src  : b,
+                        src  : base64,
                         clr0 : getId( 'FormColor0' ).value,
                         clr1 : getId( 'FormColor1' ).value,
                         clr2 : getId( 'FormColor2' ).value,

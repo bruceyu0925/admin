@@ -34,11 +34,6 @@ fetch( GAS( 'AKfycbwd7Ic8yeDuntx7d3zVPZmd_-ey_K3ECXezil27nfVMEm72Gg_Gsra_Rai_Kec
 });
 
 // DELETE
-getId( 'FormDelete' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgDelete' ).classList.add( '--show' );
-};
-
 getId( 'BtnDelete' ).onclick = () => {
     Loading( true );
 
@@ -55,13 +50,6 @@ getId( 'BtnDelete' ).onclick = () => {
 };
 
 // PUT
-getId( 'FormApply' ).onclick = () => {
-    if( CheckInput() === true ){
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgApply' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnApply' ).onclick = () => {
 
     if( CheckInput() === true ){

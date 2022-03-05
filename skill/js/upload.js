@@ -65,11 +65,6 @@ Promise.all([
 });
 
 // DELETE
-getId( 'FormDelete' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgDelete' ).classList.add( '--show' );
-};
-
 getId( 'BtnDelete' ).onclick = () => {
     Loading( true );
 
@@ -86,13 +81,6 @@ getId( 'BtnDelete' ).onclick = () => {
 }
 
 // PUT
-getId( 'FormApply' ).onclick = () => {
-    if( CheckInput() === true ) {
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgApply' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnApply' ).onclick = () => {
 
     if( CheckInput() === true ) {

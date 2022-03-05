@@ -25,8 +25,9 @@
     width: 100%;
 }
 
-.form-input{
-    width: 80%
+.form-input,
+.form-img{
+    width: 80%;
 }
 
 .form-text{
@@ -55,6 +56,11 @@ input[type="checkbox"]{
     height: 18px;
     margin-right: 8px;
     cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
 input[type="checkbox"][checked]{
@@ -225,7 +231,8 @@ input[type="color"] {
     .form-row:first-child > .form-col > .form-group{
         margin: 8px 0;
     }
-    .form-input{
+    .form-input,
+    .form-img{
         width: 100%;
     }
     #FormDesc{

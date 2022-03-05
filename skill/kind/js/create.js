@@ -4,13 +4,6 @@ const BackUrl = '/admin/skill/kind/index.html';
 window.onload = () => Loading( false );
 
 // POST
-getId( 'FormBuild' ).onclick = () => {
-    if( CheckInput() === true ) {
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgBuild' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnBuild' ).onclick = () => {
 
     if( CheckInput() === true ){

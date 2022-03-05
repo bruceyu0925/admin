@@ -17,27 +17,20 @@ queAll( '.form-color' ).forEach( el => {
 });
 
 // POST
-getId( 'FormBuild' ).onclick = () => {
-    if( CheckInput() === true ) {
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgBuild' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnBuild' ).onclick = () => {
 
     if( CheckInput() === true ){
         Loading( true );
 
-        var s = new XMLSerializer().serializeToString( getId( 'FormSvg' ) ),
-            b = 'data:image/svg+xml;base64,' + btoa( s );
+        var svg    = new XMLSerializer().serializeToString( getId( 'FormImg' ) ),
+            base64 = 'data:image/svg+xml;base64,' + btoa( svg );
         
         fetch( GAS( 'AKfycbzMcXYekQV2kc7LUPUhZ-sl3P8p-8NzIc3k3v83HkrtQJ1VFkuERCkdYUcTE5733n6O' ) , {
             method:  'POST',
             headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
             body:    JSON.stringify({
                         name : getId( 'FormName' ).value,
-                        src  : b,
+                        src  : base64,
                         clr0 : getId( 'FormColor0' ).value,
                         clr1 : getId( 'FormColor1' ).value,
                         clr2 : getId( 'FormColor2' ).value,

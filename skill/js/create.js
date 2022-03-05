@@ -38,13 +38,6 @@ fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAE
 });
 
 // POST
-getId( 'FormBuild' ).onclick = () => {
-    if( CheckInput() === true ) {
-        getId( 'Html' )    .classList.add( '--lock' );
-        getId( 'MsgBuild' ).classList.add( '--show' );
-    }
-};
-
 getId( 'BtnBuild' ).onclick = () => {
 
     if( CheckInput() === true ){

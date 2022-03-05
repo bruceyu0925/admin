@@ -24,7 +24,7 @@ Promise.all([
 
         for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
 
-            el.Kind = el.Kind.toString().replace( ( ary[ 1 ][ i ][ 'Id' ] ) , ary[ 1 ][ i ][ 'Kind' ] )
+            el.Kind = el.Kind.toString().replace( ary[ 1 ][ i ][ 'Id' ] , ary[ 1 ][ i ][ 'Kind' ] )
         };
     });
 

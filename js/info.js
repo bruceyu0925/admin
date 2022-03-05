@@ -1,12 +1,20 @@
-queAll( '.msg-cancel' ).forEach( el => {
+// 浮動視窗
+queAll( '.form-btn' ).forEach( el =>
+    el.onclick = () => {
+        getId( 'Html' )  .classList.add( '--lock' );
+        getId( el.value ).classList.add( '--show' );
+});
+
+queAll( '.msg-cancel' ).forEach( el =>
     el.onclick = () => {
         getId( 'Html' ).classList.remove( '--lock' );
         queAll( '.msg' ).forEach( el =>
             el.classList.remove( '--show' ) 
         );
     }
-})
+);
 
+// window beforeunload事件
 const LeavaAlert = ( e ) => {
     var e = window.event || e;
     e.returnValue = true;
@@ -20,6 +28,12 @@ queAll( '.msg-apply' ).forEach( el =>
     )
 );
 
+// 返回index
+getId( 'BtnCancel' ).onclick = () => {
+    window.location.href = BackUrl
+};
+
+// 確認欄位都有資料
 const CheckInput = () => {
 
     var j = true,
@@ -43,14 +57,4 @@ const CheckInput = () => {
     j === false ? alert( '欄位不得空白！' ) : null;
 
     return j;
-}
-
-// 取消
-getId( 'FormCancel' ).onclick = () => {
-    getId( 'Html' )     .classList.add( '--lock' );
-    getId( 'MsgCancel' ).classList.add( '--show' );
-};
-
-getId( 'BtnCancel' ).onclick = () => {
-    window.location.href = BackUrl
 }
