@@ -20,10 +20,10 @@ fetch( GAS( 'AKfycbwM-_7NzFHj0roNK-didJ5Qp2gwcewU752sw4GNcY-8F9M_YMPdlAQWpiX4A1x
 const ListFilter = () => {
 
     var t  = getId( 'FormText' )       .value,
-        bf = getId( 'FormBuildFirst' ) .value.split('-').join('/'),
-        bl = getId( 'FormBuildLast' )  .value.split('-').join('/'),
-        uf = getId( 'FormUpdateFirst' ).value.split('-').join('/'),
-        ul = getId( 'FormUpdateLast' ) .value.split('-').join('/');
+        bf = getId( 'FormBuildFirst' ) .value.split( '-' ).join( '/' ),
+        bl = getId( 'FormBuildLast' )  .value.split( '-' ).join( '/' ),
+        uf = getId( 'FormUpdateFirst' ).value.split( '-' ).join( '/' ),
+        ul = getId( 'FormUpdateLast' ) .value.split( '-' ).join( '/' );
 
     bf === '' ? bf = '1900/01/01' : null;
     bl === '' ? bl = '9999/12/31' : null;
@@ -37,7 +37,7 @@ const ListFilter = () => {
 
     Search_Array = List_Array.filter( li =>
         (
-            li.Name.indexOf( t ) !== -1
+            li.Name.toString().indexOf( t ) !== -1
         ) &&
         (
             new Date( li.DateBuild ) >= bf &&

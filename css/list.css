@@ -200,7 +200,7 @@ tbody > tr > td{
     color: var(--light);
 }
 
-/* RWD */
+/* RWD ---------------------------------------- */
 
 @media screen and (max-width: 1200px) {}
 

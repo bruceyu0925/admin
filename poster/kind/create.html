@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" id="Html" class="--lock">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="0">
+    <link rel="shortcut icon" href="/admin/image/favico.svg" type="image/x-icon">
+    <title id="HeadTitle"></title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/Meyerweb.css">
+    <link rel="stylesheet" href="/admin/css/base.css">
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/admin/css/info.css">
+</head>
+
+<body>
+    <header id="Header"></header>
+    <aside id="Aside"></aside>
+    <main id="Main">
+        <span id="PathText"></span>
+
+        <!-- Form -->
+        <div id="Form">
+
+            <div class="form-row">
+
+                <div class="form-col">
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormTitle">類別名稱</label>
+                        <input type="text" class="form-input" name="FormTitle" id="FormTitle">
+                    </div>
+    
+                </div>            
+
+                <div class="form-col">
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormId">ID</label>
+                        <p class="form-text" id="FormId">-</p>
+                    </div>
+        
+                    <div class="form-group">
+                        <label class="form-label" for="FormDateBuild">建立日期</label>
+                        <p class="form-text" id="FormDateBuild">-</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormDateUpdate">更新日期</label>
+                        <p class="form-text" id="FormDateUpdate">-</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="form-row" id="FormBtnLs">
+
+                <div class="form-group">
+                    <button class="form-btn" id="FormCancel" value="MsgCancel">
+                        <i class="fas fa-times-circle"></i>取消
+                    </button>
+                </div>
+                <div class="form-group">
+                    <button class="form-btn" id="FormBuild" value="MsgBuild">
+                        <i class="fas fa-plus-circle"></i>建立
+                    </button>
+                </div>
+                
+            </div>
+
+        </div>
+        
+    </main>
+
+    <!-- Msg box -->
+    <div id="MsgCancel" class="msg">
+        <div class="msg-box">
+            <div class="msg-icon" style="border-color: var(--yellow);">
+                <i class="fas fa-exclamation" style="color: var(--yellow);"></i>
+            </div>
+            <p class="msg-desc">
+                確定要離開嗎？<br>將不儲存此次設定
+            </p>
+            <div class="msg-option">
+                <button class="msg-btn msg-cancel">取消</button>
+                <button id="BtnCancel" class="msg-btn msg-apply">確定</button>
+            </div>
+        </div>
+    </div>
+    <div id="MsgBuild" class="msg">
+        <div class="msg-box">
+            <div class="msg-icon" style="border-color: var(--green);">
+                <i class="fas fa-check" style="color: var(--green);"></i>
+            </div>
+            <p class="msg-desc">
+                確定儲存此次設定嗎？
+            </p>
+            <div class="msg-option">
+                <button class="msg-btn msg-cancel">取消</button>
+                <button id="BtnBuild" class="msg-btn msg-apply">確定</button>
+            </div>
+        </div>
+    </div>
+    <div id="Load" class="--show">
+        <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
+    </div>
+</body>
+
+<script src="/admin/js/base.js"></script>
+
+<!-- JS -->
+<script src="/admin/js/info.js"></script>
+<script src="/admin/skill/kind/js/create.js"></script>
+
+</html>

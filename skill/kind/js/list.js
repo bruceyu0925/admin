@@ -2,7 +2,7 @@
 const FormLink = ( id ) => { return `/admin/skill/kind/upload.html?id=${ id }` };
 
 // GET
-fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
+fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' ) , {
     method: 'GET'
         
 }).then( ( res ) => {
@@ -20,10 +20,10 @@ fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T0
 const ListFilter = () => {
 
     var t  = getId( 'FormText' )       .value,
-        bf = getId( 'FormBuildFirst' ) .value.split('-').join('/'),
-        bl = getId( 'FormBuildLast' )  .value.split('-').join('/'),
-        uf = getId( 'FormUpdateFirst' ).value.split('-').join('/'),
-        ul = getId( 'FormUpdateLast' ) .value.split('-').join('/');
+        bf = getId( 'FormBuildFirst' ) .value.split( '-' ).join( '/' ),
+        bl = getId( 'FormBuildLast' )  .value.split( '-' ).join( '/' ),
+        uf = getId( 'FormUpdateFirst' ).value.split( '-' ).join( '/' ),
+        ul = getId( 'FormUpdateLast' ) .value.split( '-' ).join( '/' );
 
     bf === '' ? bf = '1900/01/01' : null;
     bl === '' ? bl = '9999/12/31' : null;
@@ -37,7 +37,7 @@ const ListFilter = () => {
 
     Search_Array = List_Array.filter( li =>
         (
-            li.Kind.indexOf( t ) != -1
+            li.Kind.toString().indexOf( t ) != -1
         ) &&
         (
             new Date( li.DateBuild ) >= bf &&

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" id="Html" class="--lock">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="0">
+    <link rel="shortcut icon" href="/admin/image/favico.svg" type="image/x-icon">
+    <title id="HeadTitle"></title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/Meyerweb.css">
+    <link rel="stylesheet" href="/admin/css/base.css">
+
+    <!-- Css -->
+    <link rel="stylesheet" href="/admin/css/list.css">
+    <style>
+        td:nth-child(1){
+            width: 20%;
+            min-width: 100px;
+        }
+        td:nth-child(2){
+            width: 30%;
+            min-width: 150px;
+        }
+        td:nth-child(3){
+            width: 25%;
+            min-width: 150px;
+        }
+        td:nth-child(4){
+            width: 25%;
+            min-width: 150px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="Header"></header>
+    <aside id="Aside"></aside>
+    <main id="Main">
+        <span id="PathText"></span>
+
+        <!-- Form -->
+        <div id="Form">
+
+            <div class="form-row --left">
+
+                <div class="form-group">
+                    <a class="form-btn" id="FormKind" href="/admin/skill/index.html">返回列表</a>
+                </div>
+
+                <div class="form-group">
+                    <a class="form-btn" id="FormAdd" href="/admin/skill/kind/create.html">新增資料</a>
+                </div>
+
+            </div>
+
+            <div class="form-row --left">
+
+                <div class="form-group">
+                    <label class="form-label" for="FormBuildFirst">建立日期：起始</label>
+                    <input type="date" class="form-input" name="FormBuildFirst" id="FormBuildFirst">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="FormBuildLast">建立日期：結束</label>
+                    <input type="date" class="form-input" name="FormBuildLast" id="FormBuildLast">
+                </div>
+
+            </div>
+
+            <div class="form-row --left">
+
+                <div class="form-group">
+                    <label class="form-label" for="FormUpdateFirst">更新日期：起始</label>
+                    <input type="date" class="form-input" name="FormUpdateFirst" id="FormUpdateFirst">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="FormUpdateLast">更新日期：結束</label>
+                    <input type="date" class="form-input" name="FormUpdateLast" id="FormUpdateLast">
+                </div>
+
+            </div>
+
+            <div class="form-row --left">
+
+                <div class="form-group">
+                    <label class="form-label" for="FormText">搜尋文字</label>
+                    <input type="text" class="form-input" name="FormText" id="FormText">
+                </div>
+
+            </div>
+
+            <div class="form-row --right">
+
+                <div class="form-group">
+                    <div id="SearchTotal"></div>
+                </div>
+
+            </div>
+
+            <div class="form-row --right">
+
+                <div class="form-group">
+                    <button class="form-btn" id="FormReset">
+                        <i class="fas fa-undo-alt"></i>
+                        重設
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <button class="form-btn" id="FormSearch">
+                        <i class="fas fa-search"></i>
+                        查詢
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="TableBox">
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            ID
+                            <button class="td-sort-btn --max --click" value="Id">
+                                <i class="fas fa-caret-up"></i>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                        </td>
+                        <td>
+                            類別
+                        </td>
+                        <td>
+                            建立日期
+                            <button class="td-sort-btn --max" value="DateBuild">
+                                <i class="fas fa-caret-up"></i>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                        </td>
+                        <td>
+                            更新日期
+                            <button class="td-sort-btn --max" value="DateUpdate">
+                                <i class="fas fa-caret-up"></i>
+                                <i class="fas fa-caret-down"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="Tbody">
+    
+                </tbody>
+            </table>
+        </div>
+        <div id="Page">
+            <button id="PagePrev" class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <ul id="PageList">
+
+            </ul>
+            <button id="PageNext" class="page-btn" disabled>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </main>
+    <div id="Load" class="--show">
+        <img src="/admin/image/load-light.svg" width="40" height="40" alt="loading" class="load-img">
+    </div>
+</body>
+
+<script src="/admin/js/base.js"></script>
+
+<!-- JS -->
+<script src="/admin/js/list.js"></script>
+<script src="/admin/skill/kind/js/list.js"></script>
+
+</html>

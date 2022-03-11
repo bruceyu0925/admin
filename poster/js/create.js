@@ -1,5 +1,5 @@
 // const
-const BackUrl = '/admin/skill/index.html';
+const BackUrl = '/admin/poster/index.html';
 
 // var
 var Kind_Array = [];
@@ -25,7 +25,7 @@ const InputData = () => {
 };
 
 // GET
-fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' ) , {
+fetch( GAS( 'AKfycbycpeSbczbsH2gNn9PYSXI8C8NoIPXCOK9hTHCPh6HdL9UM_oPgnBEbRqpCKtqDPfJk' ) , {
     method: 'GET'
         
 }).then( ( res ) => {
@@ -47,15 +47,29 @@ getId( 'BtnBuild' ).onclick = () => {
         queAll( '.form-checkbox' ).forEach( el => {
             el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
         });
+        console.log(JSON.stringify({
+            num   : getId( 'FormNum' )  .value,
+            title : getId( 'FormTitle' ).value,
+            desc  : getId( 'FormDesc' ) .value,
+            kind  : k.join( ',' ),
+            src   : getId( 'FormImg' ).getAttribute( 'src' ),
+            style : {
+                top:  getId( 'FormImg' ).style.top,
+                left: getId( 'FormImg' ).style.left
+            }
+        }))
         
-        fetch( GAS( 'AKfycbxyPCvHou1FCg9GWLXDyEt9wZCFiLpJCr0mLVvdmUnT2Pm9KNsQW3hukAxjcaQcMPNS' ) , {
+        fetch( GAS( 'AKfycbxgsGqUjorV-8pb-er3wUbdJWjZudzZaEhrF1ZO4Rdat5HhdrzfLv83aMfD_bSWmw0PtA' ) , {
             method:  'POST',
             headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
             body:    JSON.stringify({
+                        num   : getId( 'FormNum' )  .value,
                         title : getId( 'FormTitle' ).value,
                         desc  : getId( 'FormDesc' ) .value,
-                        score : getId( 'FormScore' ).value,
-                        kind  : k.join( ',' )
+                        kind  : k.join( ',' ),
+                        src   : getId( 'FormImg' ).getAttribute( 'src' ),
+                        top   : getId( 'FormImg' ).style.top,
+                        left  : getId( 'FormImg' ).style.left
                     })
         
         }).then( ( res ) => {
@@ -67,16 +81,11 @@ getId( 'BtnBuild' ).onclick = () => {
     }
 };
 
-// 分數防呆
-getId( 'FormScore' ).onkeyup = function() {
+getId( 'FormNum' ).onkeyup = function() {
 
     var v = this.value;
 
-    if( v > 100 ) {
-        v = 100
-
-    } else if ( v < 0 ) {
-        v = 0
-    };
+    v < 1 ? v = 1 : null;
+    
     this.value = Math.round( v );
 };

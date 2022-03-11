@@ -53,8 +53,35 @@ const CheckInput = () => {
 
         c === 0 ? j = false : null;
     };
+    try {
+        getId( 'FormImg' ).getAttribute( 'src' ).length < 1 ? j = false : null;
+    } catch {};
 
     j === false ? alert( '欄位不得空白！' ) : null;
 
     return j;
 }
+
+// // jpg 轉 base64
+// function toBase64( src ) {
+
+//     var img = new Image(),
+//         base64;
+
+//     img.src = src;
+
+//     img.onload = function () {
+
+//         var w   = this.width,
+//             h   = this.height,
+//             cvs = document.getElementById( 'photo' ),
+//             ctx = cvs.getContext('2d');
+
+//         cvs.width  = w;
+//         cvs.height = h;
+//         ctx.drawImage( img , 0 , 0 , w , h );
+
+//         base64 = cvs.toDataURL( 'image/jpeg' );
+//     }
+//     return base64;
+// }

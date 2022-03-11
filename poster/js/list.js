@@ -1,10 +1,10 @@
 // const
-const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
+const FormLink = ( id ) => { return `/admin/poster/upload.html?id=${ id }` };
 
 // GET
 Promise.all([
-    GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
-    GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' )
+    GAS( 'AKfycbwi9ZeGuMtffjXfcSHKdjPV0pard7uGyYkbHbFRRluxKmQD9Ii3K6YtumsAl0CrlEWh2g' ),
+    GAS( 'AKfycbycpeSbczbsH2gNn9PYSXI8C8NoIPXCOK9hTHCPh6HdL9UM_oPgnBEbRqpCKtqDPfJk' )
 
 ].map( req =>
 
@@ -82,21 +82,27 @@ const ListHtml = () => {
         // 轉換資料
         var a = Search_Array[ i ],
             id         = a.Id,
+            num        = a.Num,
+            src        = a.Src,
             title      = a.Title,
             desc       = a.Desc,
-            kind       = a.Kind.toString(),
-            score      = a.Score,
+            kind       = a.Kind,
             datebuild  = DateTran( a.DateBuild ),
-            dateupdate = DateTran( a.DateUpdate ),
-            link       = FormLink( id );
+            dateupdate = DateTran( a.DateUpdate );
 
         // 輸出DOM
         getId( 'Tbody' ).insertAdjacentHTML( 'beforeend' , 
             `<tr>
                 <td class="__center">
-                    <a class="list-btn" href="${ link }">
+                    <a class="list-btn" href="${ FormLink( id ) }">
                         ${ id }
                     </a>
+                </td>
+                <td class="__center">
+                    ${ num }
+                </td>
+                <td class="__center">
+                    <div class="list-img" style="background-image: url(${ src })"></div>
                 </td>
                 <td class="__center">
                     ${ title }
@@ -106,9 +112,6 @@ const ListHtml = () => {
                 </td>
                 <td class="__center">
                     ${ kind }
-                </td>
-                <td class="__center">
-                    ${ score }
                 </td>
                 <td class="__center">
                     ${ datebuild }

@@ -1,33 +1,18 @@
 // const
-const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
+const FormLink = ( id ) => { return `/admin/skill/kind/upload.html?id=${ id }` };
 
 // GET
-Promise.all([
-    GAS( 'AKfycbyho-aJp41o7tmxSKUwR6DqB9Z54fawKHrCijXJcmnDoH0euucF0TPT_NZdpgqHu9iT' ),
-    GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' )
-
-].map( req =>
-
-    fetch( req , {
-        method: 'GET'
+fetch( GAS( 'AKfycbxLx2e6WSqDSTmkyoZWDZlJt2Wklz21qUEwi0d0By-e0o5l6L4HiUzs5Oqp7T01-Dg' ) , {
+    method: 'GET'
         
-    }).then( ( res ) => {
-        return res.json()
-    })
+}).then( ( res ) => {
+    return res.json()
 
-)).then( ary => {
+}).then( ary => {
 
-    List_Array = ary[ 0 ];
-    List_Total = ary[ 0 ].length;
-
-    List_Array.forEach( el => {
-
-        for( let i = 0 ; i < ary[ 1 ].length ; i++ ) {
-
-            el.Kind = el.Kind.toString().replace( ary[ 1 ][ i ][ 'Id' ] , ary[ 1 ][ i ][ 'Kind' ] )
-        };
-    });
-
+    List_Array = ary;
+    List_Total = ary.length;
+    
     getId( 'FormSearch' ).click();
 });
 
@@ -52,9 +37,7 @@ const ListFilter = () => {
 
     Search_Array = List_Array.filter( li =>
         (
-            li.Title.toString().indexOf( t ) !== -1 ||
-            li.Desc .toString().indexOf( t ) !== -1 ||
-            li.Kind .toString().indexOf( t ) !== -1
+            li.Kind.toString().indexOf( t ) != -1
         ) &&
         (
             new Date( li.DateBuild ) >= bf &&
@@ -82,10 +65,7 @@ const ListHtml = () => {
         // 轉換資料
         var a = Search_Array[ i ],
             id         = a.Id,
-            title      = a.Title,
-            desc       = a.Desc,
-            kind       = a.Kind.toString(),
-            score      = a.Score,
+            kind       = a.Kind,
             datebuild  = DateTran( a.DateBuild ),
             dateupdate = DateTran( a.DateUpdate ),
             link       = FormLink( id );
@@ -99,16 +79,7 @@ const ListHtml = () => {
                     </a>
                 </td>
                 <td class="__center">
-                    ${ title }
-                </td>
-                <td class="__left">
-                    ${ desc }
-                </td>
-                <td class="__center">
                     ${ kind }
-                </td>
-                <td class="__center">
-                    ${ score }
                 </td>
                 <td class="__center">
                     ${ datebuild }
