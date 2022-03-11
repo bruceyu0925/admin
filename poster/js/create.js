@@ -47,17 +47,6 @@ getId( 'BtnBuild' ).onclick = () => {
         queAll( '.form-checkbox' ).forEach( el => {
             el.hasAttribute( 'checked' ) ? k.push( el.value ) : null
         });
-        console.log(JSON.stringify({
-            num   : getId( 'FormNum' )  .value,
-            title : getId( 'FormTitle' ).value,
-            desc  : getId( 'FormDesc' ) .value,
-            kind  : k.join( ',' ),
-            src   : getId( 'FormImg' ).getAttribute( 'src' ),
-            style : {
-                top:  getId( 'FormImg' ).style.top,
-                left: getId( 'FormImg' ).style.left
-            }
-        }))
         
         fetch( GAS( 'AKfycbxgsGqUjorV-8pb-er3wUbdJWjZudzZaEhrF1ZO4Rdat5HhdrzfLv83aMfD_bSWmw0PtA' ) , {
             method:  'POST',
@@ -76,6 +65,7 @@ getId( 'BtnBuild' ).onclick = () => {
             return res.text()
         
         }).then( ( data ) => {
+            // 待新增錯誤處理
             window.location.href = BackUrl;
         })
     }
