@@ -65,8 +65,20 @@ getId( 'BtnBuild' ).onclick = () => {
             return res.text()
         
         }).then( ( data ) => {
-            // 待新增錯誤處理
-            window.location.href = BackUrl;
+
+            if( data === 'Success' ) {
+                window.location.href = BackUrl;
+
+            } else if( data === 'Warn-Num' ) {
+                getId( 'MsgBuild' ).classList.remove( '--show' );
+                alert( '已有相同編號！' );
+                Loading( false );
+                
+            } else if( data === 'Warn-Title' ) {
+                getId( 'MsgBuild' ).classList.remove( '--show' );
+                alert( '已有相同名稱！' );
+                Loading( false );
+            }
         })
     }
 };

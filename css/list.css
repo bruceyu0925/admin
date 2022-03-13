@@ -135,17 +135,21 @@ tbody > tr > td{
     opacity: 1;
 }
 
-.list-img{
+.list-img-block{
+    position: relative;
     width: 72px;
     height: 72px;
     margin: -12px auto;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+}
+
+.list-img-src{
+    position: absolute;
 }
 
 /* Page ---------------------------------------- */

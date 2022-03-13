@@ -88,7 +88,9 @@ const ListHtml = () => {
             desc       = a.Desc,
             kind       = a.Kind,
             datebuild  = DateTran( a.DateBuild ),
-            dateupdate = DateTran( a.DateUpdate );
+            dateupdate = DateTran( a.DateUpdate ),
+            left       = a.Left,
+            top        = a.Top;
 
         // 輸出DOM
         getId( 'Tbody' ).insertAdjacentHTML( 'beforeend' , 
@@ -102,7 +104,10 @@ const ListHtml = () => {
                     ${ num }
                 </td>
                 <td class="__center">
-                    <div class="list-img" style="background-image: url(${ src })"></div>
+                    <div class="list-img-block">
+                        <img class="list-img-src" alt="${ title }" src="${ src }" 
+                            style="left:${ left };top:${ top }">
+                    </div>
                 </td>
                 <td class="__center">
                     ${ title }
@@ -120,7 +125,15 @@ const ListHtml = () => {
                     ${ dateupdate }
                 </td>
             </tr>`
-        )
+        );
+        let s = queAll( '.list-img-src' )[ i ];
+        if( s.offsetWidth > s.offsetHeight ) {
+            s.style.width  = 'auto';
+            s.style.height = '100%';
+        } else {
+            s.style.width  = '100%';
+            s.style.height = 'auto';
+        }
         i++
     }
     PageJudge();

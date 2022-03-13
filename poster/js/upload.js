@@ -10,12 +10,22 @@ var List_Array = [],
 const InputData = () => {
 
     // 欄位
+    getId( 'FormNum' )       .value     = List_Array.Num;
     getId( 'FormTitle' )     .value     = List_Array.Title;
     getId( 'FormDesc' )      .value     = List_Array.Desc;
-    getId( 'FormScore' )     .value     = List_Array.Score;
     getId( 'FormId' )        .innerHTML = List_Array.Id;
     getId( 'FormDateBuild' ) .innerHTML = DateTran( List_Array.DateBuild );
     getId( 'FormDateUpdate' ).innerHTML = DateTran( List_Array.DateUpdate );
+
+    // 圖片
+    getId( 'FormImg' ).setAttribute( 'src' , List_Array.Src );
+    getId( 'FormImg' )   .style.display = 'block';
+    getId( 'FormImgDel' ).style.display = 'flex';
+    getId( 'FormImg' ).onload = () => {
+        dragReset();
+        getId( 'FormImg' ).style.top  = List_Array.Top;
+        getId( 'FormImg' ).style.left = List_Array.Left;
+    }
 
     // 核取方塊
     Kind_Array.forEach( el => {
@@ -41,8 +51,8 @@ const InputData = () => {
 
 // GET
 Promise.all([
-    GAS( '' ) + ReqId,
-    GAS( '' )
+    GAS( 'AKfycby3k3tjnGQQ8eLaScZkb5EnzoJrTAxnYWYuwIpBUXaNX_QCBrEYseTARdrFgdXEZysq' ) + ReqId,
+    GAS( 'AKfycbycpeSbczbsH2gNn9PYSXI8C8NoIPXCOK9hTHCPh6HdL9UM_oPgnBEbRqpCKtqDPfJk' )
 
 ].map( req =>
 
@@ -95,32 +105,46 @@ getId( 'BtnApply' ).onclick = () => {
             method:  'POST',
             headers: { 'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8' },
             body:    JSON.stringify({
+                        num   : getId( 'FormNum' )  .value,
                         title : getId( 'FormTitle' ).value,
                         desc  : getId( 'FormDesc' ) .value,
-                        score : getId( 'FormScore' ).value,
-                        kind  : k.join( ',' )
+                        kind  : k.join( ',' ),
+                        src   : getId( 'FormImg' ).getAttribute( 'src' ),
+                        top   : getId( 'FormImg' ).style.top,
+                        left  : getId( 'FormImg' ).style.left
                     })
         
         }).then( ( res ) => {
             return res.text()
         
         }).then( ( data ) => {
-            data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
-            window.location.href = BackUrl;
+
+            if( data === 'Success' ) {
+                window.location.href = BackUrl;
+
+            } else if( data === 'Warn-Num' ) {
+                getId( 'MsgBuild' ).classList.remove( '--show' );
+                alert( '已有相同編號！' );
+                Loading( false );
+                
+            } else if( data === 'Warn-Title' ) {
+                getId( 'MsgBuild' ).classList.remove( '--show' );
+                alert( '已有相同名稱！' );
+                Loading( false );
+
+            } else if( data === 'Error' ) {
+                data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
+                window.location.href = BackUrl;
+            }
         })
     }
 }
 
-// 分數防呆
-getId( 'FormScore' ).onkeyup = function() {
+getId( 'FormNum' ).onkeyup = function() {
 
     var v = this.value;
 
-    if( v > 100 ) {
-        v = 100
-
-    } else if ( v < 0 ) {
-        v = 0
-    };
+    v < 1 ? v = 1 : null;
+    
     this.value = Math.round( v );
 };

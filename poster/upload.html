@@ -33,27 +33,41 @@
                 <div class="form-col">
 
                     <div class="form-group">
-                        <label class="form-label" for="FormTitle">標題</label>
+                        <label class="form-label" for="FormNum">編號</label>
+                        <input type="number" class="form-input" name="FormNum" id="FormNum" min="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormImg">縮圖（拖動可修改）</label>
+                        <div id="FormBlock" class="form-img">
+                            <button id="FormImgAdd">
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                            <img id="FormImg" src="">
+                            <button id="FormImgDel">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        <input type="file" name="FormFile" id="FormFile" accept=".jpg,.jpeg" >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="FormTitle">名稱</label>
                         <input type="text" class="form-input" name="FormTitle" id="FormTitle">
                     </div>
             
                     <div class="form-group">
-                        <label class="form-label" for="FormDesc">描述</label>
+                        <label class="form-label" for="FormDesc">說明</label>
                         <textarea name="FormDesc" id="FormDesc" class="form-input" cols="30" rows="10"></textarea>
-                    </div>
-        
-                    <div class="form-group">
-                        <label class="form-label" for="FormScore">分數</label>
-                        <input type="number" class="form-input" name="FormScore" id="FormScore" min="0" max="100">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="FormKind">分類</label>
+                        <label class="form-label" for="FormKind">工具</label>
                         <div class="" id="FormKind">
                         </div>
                     </div>
     
-                </div>            
+                </div>
 
                 <div class="form-col">
 
@@ -151,6 +165,7 @@
 
 <!-- JS -->
 <script src="/admin/js/info.js"></script>
+<script src="/admin/poster/js/image.js"></script>
 <script src="/admin/poster/js/upload.js"></script>
 
 </html>

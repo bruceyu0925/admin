@@ -84,7 +84,7 @@ const ListHtml = () => {
                     ${ name }
                 </td>
                 <td class="__center">
-                    <div class="list-img" style="background-image: url(${ src })"></div>
+                    <div class="list-img-block" style="background-image: url(${ src })"></div>
                 </td>
                 <td class="__center">
                     ${ watch }
