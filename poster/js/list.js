@@ -125,16 +125,17 @@ const ListHtml = () => {
                     ${ dateupdate }
                 </td>
             </tr>`
-        );
-        let s = queAll( '.list-img-src' )[ i ];
-        if( s.offsetWidth > s.offsetHeight ) {
-            s.style.width  = 'auto';
-            s.style.height = '100%';
-        } else {
-            s.style.width  = '100%';
-            s.style.height = 'auto';
-        }
+        )
         i++
     }
+    queAll( '.list-img-src' ).forEach( el => {
+        if( el.offsetWidth > el.offsetHeight ) {
+            el.style.width  = 'auto';
+            el.style.height = '100%';
+        } else {
+            el.style.width  = '100%';
+            el.style.height = 'auto';
+        }
+    })
     PageJudge();
 };
