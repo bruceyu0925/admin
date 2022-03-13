@@ -140,6 +140,8 @@ tbody > tr > td{
     width: 72px;
     height: 72px;
     margin: -12px auto;
+    background-size: cover;
+    background-position: center center;
     overflow: hidden;
     border-radius: 4px;
     -webkit-border-radius: 4px;
