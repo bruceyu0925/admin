@@ -152,6 +152,7 @@ tbody > tr > td{
 
 .list-img-src{
     position: absolute;
+    pointer-events: none;
 }
 
 /* Page ---------------------------------------- */
