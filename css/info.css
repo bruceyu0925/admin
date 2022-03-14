@@ -100,6 +100,11 @@ input[type="checkbox"][checked]{
 }
 
 /* 調色盤 */
+#FormSvg{
+    width: 80%;
+    height: auto;
+}
+
 input[type="color"] {
     width: 32px;
     height: 32px;
@@ -116,6 +121,7 @@ input[type="color"] {
     position: relative;
     height: 0%;
     overflow: hidden;
+    border: 1px solid var(--shark);
 }
 
 #FormBlock::before {

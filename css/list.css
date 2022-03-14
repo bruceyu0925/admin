@@ -8,15 +8,11 @@
     width: 200px;
 }
 
-#FormKind{
-    color: var(--light);
-    background-color: var(--shark);
-    border-color: var(--shark);
-}
-
+#FormKind,
 #FormAdd{
     color: var(--light);
     background-color: var(--shark);
+    border-color: var(--shark);
 }
 
 #FormReset{
