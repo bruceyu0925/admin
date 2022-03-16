@@ -2,7 +2,8 @@
 var Bw , Bh , Iw , Ih , Sx , Sy;
 
 window.onload = () => {
-    getId( 'FormImg' ).addEventListener( 'mousedown' , dragStart );
+    getId( 'FormImg' ).addEventListener( 'mousedown'  , dragStart );
+    getId( 'FormImg' ).addEventListener( 'touchstart' , dragStart , { passive: false } );
     dragReset();
 }
 
@@ -30,15 +31,21 @@ function dragReset() {
 
 function dragStart( e ) {
     e.preventDefault();
-    Sx = e.clientX - getId( 'FormImg' ).style.left.replace( '%' , '' ) * Bw / 100;
-    Sy = e.clientY - getId( 'FormImg' ).style.top .replace( '%' , '' ) * Bh / 100;
+    Sx = e.clientX || e.targetTouches[ 0 ].pageX;
+    Sx = Sx - getId( 'FormImg' ).style.left.replace( '%' , '' ) * Bw / 100;
+    Sy = e.clientY || e.targetTouches[ 0 ].pageY;
+    Sy = Sy - getId( 'FormImg' ).style.top .replace( '%' , '' ) * Bh / 100;
     document.addEventListener( 'mousemove' , dragMove );
     document.addEventListener( 'mouseup'   , dragStop );
+    document.addEventListener( 'touchmove' , dragMove , { passive: false } );
+    document.addEventListener( 'touchend'  , dragStop , { passive: false } );
 }
 
 function dragMove( e ) {
-    var x = e.clientX - Sx,
-        y = e.clientY - Sy;
+    var x = e.clientX || e.targetTouches[ 0 ].pageX,
+        y = e.clientY || e.targetTouches[ 0 ].pageY;
+    x = x - Sx;
+    y = y - Sy;
     x < Bw - Iw ? x = Bw - Iw : null;
     x > 0       ? x = 0       : null;
     y < Bh - Ih ? y = Bh - Ih : null;
@@ -50,6 +57,8 @@ function dragMove( e ) {
 function dragStop() {
     document.removeEventListener( 'mousemove' , dragMove );
     document.removeEventListener( 'mouseup'   , dragStop );
+    document.removeEventListener( 'touchmove' , dragMove , { passive: false } );
+    document.removeEventListener( 'touchend'  , dragStop , { passive: false } );
 }
 
 // 刪除圖片
