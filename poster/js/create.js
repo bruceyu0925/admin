@@ -56,9 +56,9 @@ getId( 'BtnBuild' ).onclick = () => {
                         title : getId( 'FormTitle' ).value,
                         desc  : getId( 'FormDesc' ) .value,
                         kind  : k.join( ',' ),
-                        src   : getId( 'FormImg' ).getAttribute( 'src' ),
                         top   : getId( 'FormImg' ).style.top,
-                        left  : getId( 'FormImg' ).style.left
+                        left  : getId( 'FormImg' ).style.left,
+                        src   : getId( 'FormImg' ).getAttribute( 'src' )
                     })
         
         }).then( ( res ) => {
