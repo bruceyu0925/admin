@@ -16,10 +16,10 @@ getId( 'BtnBuild' ).onclick = () => {
                         kind: getId( 'FormTitle' ).value
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
             window.location.href = BackUrl;
         })
     }

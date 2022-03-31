@@ -20,7 +20,7 @@ const InputData = () => {
 fetch( GAS( 'AKfycbwd7Ic8yeDuntx7d3zVPZmd_-ey_K3ECXezil27nfVMEm72Gg_Gsra_Rai_Kec7rD0MXg' ) + ReqId , {
     method: 'GET'
         
-}).then( ( res ) => {
+}).then( res => {
     return res.json()
 
 }).then( ary => {
@@ -28,7 +28,7 @@ fetch( GAS( 'AKfycbwd7Ic8yeDuntx7d3zVPZmd_-ey_K3ECXezil27nfVMEm72Gg_Gsra_Rai_Kec
     InputData();
     Loading( false );
 
-}).catch( ( err ) => {
+}).catch( err => {
     alert( '查無此ID，資料已被刪除' );
     window.location.href = BackUrl;
 });
@@ -40,10 +40,10 @@ getId( 'BtnDelete' ).onclick = () => {
     fetch( GAS( 'AKfycbx2VPd35csBHOQosY4YvU8RligUFpJ4cVrgqhcziiRShL_6MufDVVCS81UJNYNpmqwhBg' ) + ReqId , {
         method:  'POST'
     
-    }).then( ( res ) => {
+    }).then( res => {
         return res.text()
     
-    }).then( ( data ) => {
+    }).then( data => {
         data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
         window.location.href = BackUrl;
     })

@@ -59,7 +59,7 @@ Promise.all([
     fetch( req , {
         method: 'GET'
         
-    }).then( ( res ) => {
+    }).then( res => {
         return res.json()
     })
 
@@ -114,10 +114,10 @@ getId( 'BtnApply' ).onclick = () => {
                         left  : getId( 'FormImg' ).style.left
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
 
             if( data === 'Success' ) {
                 window.location.href = BackUrl;

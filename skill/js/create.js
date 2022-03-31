@@ -28,10 +28,10 @@ const InputData = () => {
 fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' ) , {
     method: 'GET'
         
-}).then( ( res ) => {
+}).then( res => {
     return res.json()
         
-}).then( ( data ) => {
+}).then( data => {
     Kind_Array = data
     InputData();
     Loading( false )
@@ -58,10 +58,10 @@ getId( 'BtnBuild' ).onclick = () => {
                         kind  : k.join( ',' )
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
             window.location.href = BackUrl;
         })
     }

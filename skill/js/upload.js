@@ -49,7 +49,7 @@ Promise.all([
     fetch( req , {
         method: 'GET'
         
-    }).then( ( res ) => {
+    }).then( res => {
         return res.json()
     })
 
@@ -59,7 +59,7 @@ Promise.all([
     InputData();
     Loading( false );
 
-}).catch( ( err ) => {
+}).catch( err => {
     alert( '查無此ID，資料已被刪除' );
     window.location.href = BackUrl;
 });
@@ -71,10 +71,10 @@ getId( 'BtnDelete' ).onclick = () => {
     fetch( GAS( 'AKfycbzKKG4MKZBAHybZkTwmk-A1PgugFVzOsB1S4anK-kESvhfyN7ElYW4N08c0obVS5NX9' ) + ReqId , {
         method:  'POST'
     
-    }).then( ( res ) => {
+    }).then( res => {
         return res.text()
     
-    }).then( ( data ) => {
+    }).then( data => {
         data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
         window.location.href = BackUrl;
     })
@@ -101,10 +101,10 @@ getId( 'BtnApply' ).onclick = () => {
                         kind  : k.join( ',' )
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
             data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
             window.location.href = BackUrl;
         })

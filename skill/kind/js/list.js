@@ -1,11 +1,11 @@
 // const
-const FormLink = ( id ) => { return `/admin/skill/kind/upload.html?id=${ id }` };
+const FormLink = id => { return `/admin/skill/kind/upload.html?id=${ id }` };
 
 // GET
 fetch( GAS( 'AKfycby8aq_1Ln1-CB73CqJ-ABcM-gi2vaEheFnf6ou0aVZncs0fmskGGIjuXngYeAEEBBlf' ) , {
     method: 'GET'
         
-}).then( ( res ) => {
+}).then( res => {
     return res.json()
 
 }).then( ary => {

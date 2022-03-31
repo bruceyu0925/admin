@@ -1,5 +1,5 @@
 // const
-const FormLink = ( id ) => { return `/admin/paint/upload.html?id=${ id }` };
+const FormLink = id => { return `/admin/paint/upload.html?id=${ id }` };
 
 // GET
 fetch( GAS( 'AKfycbwM-_7NzFHj0roNK-didJ5Qp2gwcewU752sw4GNcY-8F9M_YMPdlAQWpiX4A1xvsNaVTg' ) , {

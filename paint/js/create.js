@@ -43,10 +43,10 @@ getId( 'BtnBuild' ).onclick = () => {
                         clr9 : getId( 'FormColor9' ).value
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
 
             if( data === 'Success' ) {
                 window.location.href = BackUrl;

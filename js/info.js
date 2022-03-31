@@ -15,18 +15,18 @@ queAll( '.msg-cancel' ).forEach( el =>
 );
 
 // window beforeunload事件
-const LeavaAlert = ( e ) => {
-    var e = window.event || e;
-    e.returnValue = true;
-};
+// const LeavaAlert = ( e ) => {
+//     var e = window.event || e;
+//     e.returnValue = true;
+// };
 
-window.addEventListener( 'beforeunload' , LeavaAlert );
+// window.addEventListener( 'beforeunload' , LeavaAlert );
 
-queAll( '.msg-apply' ).forEach( el =>
-    el.addEventListener( 'click' , () =>
-        window.removeEventListener( 'beforeunload' , LeavaAlert )
-    )
-);
+// queAll( '.msg-apply' ).forEach( el =>
+//     el.addEventListener( 'click' , () =>
+//         window.removeEventListener( 'beforeunload' , LeavaAlert )
+//     )
+// );
 
 // 返回index
 getId( 'BtnCancel' ).onclick = () => {
@@ -61,27 +61,3 @@ const CheckInput = () => {
 
     return j;
 }
-
-// // jpg 轉 base64
-// function toBase64( src ) {
-
-//     var img = new Image(),
-//         base64;
-
-//     img.src = src;
-
-//     img.onload = function () {
-
-//         var w   = this.width,
-//             h   = this.height,
-//             cvs = document.getElementById( 'photo' ),
-//             ctx = cvs.getContext('2d');
-
-//         cvs.width  = w;
-//         cvs.height = h;
-//         ctx.drawImage( img , 0 , 0 , w , h );
-
-//         base64 = cvs.toDataURL( 'image/jpeg' );
-//     }
-//     return base64;
-// }

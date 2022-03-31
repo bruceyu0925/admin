@@ -28,10 +28,10 @@ const InputData = () => {
 fetch( GAS( 'AKfycbycpeSbczbsH2gNn9PYSXI8C8NoIPXCOK9hTHCPh6HdL9UM_oPgnBEbRqpCKtqDPfJk' ) , {
     method: 'GET'
         
-}).then( ( res ) => {
+}).then( res => {
     return res.json()
         
-}).then( ( data ) => {
+}).then( data => {
     Kind_Array = data
     InputData();
     Loading( false )
@@ -61,10 +61,10 @@ getId( 'BtnBuild' ).onclick = () => {
                         src   : getId( 'FormImg' ).getAttribute( 'src' )
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
 
             if( data === 'Success' ) {
                 window.location.href = BackUrl;

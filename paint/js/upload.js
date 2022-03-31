@@ -47,7 +47,7 @@ const InputData = () => {
 fetch( GAS( 'AKfycbwgcR2rqPQgoIUFjayVxXjtepWvolJsWb54cDlnucMkJKa_5dByJyKZDvLdIqUuoWRihA' ) + ReqId , {
     method: 'GET'
         
-}).then( ( res ) => {
+}).then( res => {
     return res.json();
 
 }).then( ary => {
@@ -67,10 +67,10 @@ getId( 'BtnDelete' ).onclick = () => {
     fetch( GAS( 'AKfycbw0seVQyh97PMFuMz-sVWGe4DZCdDTE4XsyCwIZDKXIRQ_GnqvQlkeWVTDPzeLrOxuG' ) + ReqId , {
         method:  'POST'
     
-    }).then( ( res ) => {
+    }).then( res => {
         return res.text()
     
-    }).then( ( data ) => {
+    }).then( data => {
         data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
         window.location.href = BackUrl;
     })
@@ -103,10 +103,10 @@ getId( 'BtnApply' ).onclick = () => {
                         clr9 : getId( 'FormColor9' ).value
                     })
         
-        }).then( ( res ) => {
+        }).then( res => {
             return res.text()
         
-        }).then( ( data ) => {
+        }).then( data => {
             data === 'Error' ? alert( '查無此ID，資料已被刪除' ) : null;
             window.location.href = BackUrl;
         })

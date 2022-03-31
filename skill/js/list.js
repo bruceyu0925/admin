@@ -1,5 +1,5 @@
 // const
-const FormLink = ( id ) => { return `/admin/skill/upload.html?id=${ id }` };
+const FormLink = id => { return `/admin/skill/upload.html?id=${ id }` };
 
 // GET
 Promise.all([
@@ -11,7 +11,7 @@ Promise.all([
     fetch( req , {
         method: 'GET'
         
-    }).then( ( res ) => {
+    }).then( res => {
         return res.json()
     })
 
