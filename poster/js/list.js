@@ -3,7 +3,8 @@ const FormLink = id => { return `/admin/poster/upload.html?id=${ id }` };
 
 // GET
 Promise.all([
-    GAS( 'AKfycbwi9ZeGuMtffjXfcSHKdjPV0pard7uGyYkbHbFRRluxKmQD9Ii3K6YtumsAl0CrlEWh2g' ),
+    GAS( 'AKfycbwi9ZeGuMtffjXfcSHKdjPV0pard7uGyYkbHbFRRluxKmQD9Ii3K6YtumsAl0CrlEWh2g' ) + 
+    `?len=999999&page=${ 0 }&tool=${ '' }&text=${ '' }&sort=${ 'new' }`,
     GAS( 'AKfycbycpeSbczbsH2gNn9PYSXI8C8NoIPXCOK9hTHCPh6HdL9UM_oPgnBEbRqpCKtqDPfJk' )
 
 ].map( req =>
@@ -17,8 +18,8 @@ Promise.all([
 
 )).then( ary => {
 
-    List_Array = ary[ 0 ];
-    List_Total = ary[ 0 ].length;
+    List_Array = ary[ 0 ][ 'data' ];
+    List_Total = ary[ 0 ][ 'len' ];
 
     List_Array.forEach( el => {
 
@@ -106,7 +107,7 @@ const ListHtml = () => {
                 <td class="__center">
                     <div class="list-img-block">
                         <img class="list-img-src" alt="${ title }" src="${ src }" 
-                            style="left:${ left };top:${ top }">
+                            style="left:${ left * 100 }%;top:${ top * 100 }%">
                     </div>
                 </td>
                 <td class="__center">

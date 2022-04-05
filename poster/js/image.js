@@ -83,7 +83,7 @@ getId( 'FormFile' ).onchange = () => {
     var f = getId( 'FormFile' ).files[ 0 ],
         r = new FileReader();
     r.onload = e => {
-        resizeImage( e.target.result , 594 , .9 , src => {
+        resizeImage( e.target.result , 594 , 1 , src => {
             getId( 'FormImg' ).setAttribute( 'src' , src );
             getId( 'FormImg' )   .style.display = 'block';
             getId( 'FormImgDel' ).style.display = 'flex';

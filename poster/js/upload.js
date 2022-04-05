@@ -23,8 +23,8 @@ const InputData = () => {
     getId( 'FormImgDel' ).style.display = 'flex';
     getId( 'FormImg' ).onload = () => {
         dragReset();
-        getId( 'FormImg' ).style.top  = List_Array.Top;
-        getId( 'FormImg' ).style.left = List_Array.Left;
+        getId( 'FormImg' ).style.top  = List_Array.Top * 100 + '%';
+        getId( 'FormImg' ).style.left = List_Array.Left * 100 + '%';
     }
 
     // 核取方塊
